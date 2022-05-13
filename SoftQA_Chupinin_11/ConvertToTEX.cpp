@@ -71,3 +71,29 @@ bool isVar(const string& str) {
 
     return isVar;
 }
+
+int getPriorityOfOperator(string& str) {
+
+    vector <vector<string>> priorityOperators{
+     { "all()", "exist()", "_", "!", "summator()"},
+     { "in()", "noin()"},
+     {"pow()", "sqrt()"},
+     { "*", "/", "%", "frac()", "&"},
+     { "+", "-", "+-", "-+", "|"},
+     { ">=", "<=", ">", "<" },
+     { "=", "!=" },
+     { "&&" },
+     { "||" },
+     { ",", ".." }
+    };
+
+    int priority = -1; // int priority = 0 - не проверял -1
+    for (int i = 0; i < priorityOperators.size(); i++) {
+        for (int j = 0; j < priorityOperators[i].size(); j++) {
+            if (priorityOperators[i][j] == str)
+                priority = i;
+        }
+    }
+
+    return priority;
+}
