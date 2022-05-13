@@ -3,3 +3,7 @@
 ExpressionTree::ExpressionTree() : expressionElementType(VAR), value("x")
 {
 }
+
+ExpressionTree::~ExpressionTree()
+{
+}
