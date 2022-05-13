@@ -21,13 +21,7 @@ enum Exception
 
 };
 
-/*! конвертировать обратную польскую запись выражения на языке си в формулу TEX
-	\param[in] reversePolishEntry  обратная польская запись
-	\return  строка в tex формате
-*/
-string convertFormulaToTEX(string& reversePolishEntry);
 
-string convertSubFormulaToTEX(vector<string>& reversePolishEntryElements, int& curIndex, int& maxPriority);
 
 /*! разбиение строки по разделителям
   \param[in] str строка
@@ -43,5 +37,3 @@ int isOperator(const string& str);
 int getPriorityOfOperator(string& str);
 void makeExternalBrackets(string& str);
 
-
-string convertOperatorToTex(string& str);
