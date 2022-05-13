@@ -26,7 +26,7 @@ private:
 public:
 
 	ExpressionTree();
-	ExpressionTree(string value);
+	ExpressionTree(const string value);
 	~ExpressionTree();
 
 	string getValue();
@@ -37,7 +37,7 @@ public:
 
 	ExpressionElementType getExpressionElementType();
 	string getTexFormat();
-	void addChild(string value);
+	void addChild(const string value);
 	void addChild(ExpressionTree* child);
 	void deleteTree();
 };

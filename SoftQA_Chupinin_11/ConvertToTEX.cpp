@@ -111,7 +111,7 @@ bool isVar(const string& str) {
     return isVar;
 }
 
-int getPriorityOfOperator(string& str) {
+int getPriorityOfOperator(const string& str) {
 
     vector <vector<string>> priorityOperators{
      { "all()", "exist()", "_", "!", "summator()"},

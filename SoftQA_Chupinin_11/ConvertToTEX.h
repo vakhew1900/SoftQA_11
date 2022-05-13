@@ -34,7 +34,7 @@ bool isVar(const string& str);
 bool isNumber(const string& str);
 bool isGreekLetter(const string& str);
 int isOperator(const string& str);
-int getPriorityOfOperator(string& str);
+int getPriorityOfOperator(const string& str);
 
 
 string convertOperatorToTex(const string& str);
