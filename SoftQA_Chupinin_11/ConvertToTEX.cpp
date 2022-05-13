@@ -26,3 +26,30 @@ int isOperator(const string& str)
 
     return numberOfOperands;
 }
+
+bool isGreekLetter(const string& str)
+{
+    string workingStr = "\\" + str;
+
+    vector <string> upperGreekLetter = { "\\Alpha", "\\Beta", "\\Gamma", "\\Epsilon", "\\Zeta", "\\Eta", "\\Theta",
+    "\\Iota", "\\Kappa", "\\Lambda", "\\Mu", "\\Nu", "\\Xi", "\\Omicron", "\\Pi", "\\Rho", "\\Sigma", "\\Tau", "\\Upsilon",
+    "\\Phi", "\\Chi", "\\Psi", "\\Omega" };
+
+    vector <string> lowerGreekLetter = { "\\alpha", "\\beta", "\\gamma", "\\epsilon", "\\zeta", "\\eta", "\\theta",
+    "\\iota", "\\kappa", "\\lambda", "\\mu", "\\nu", "\\xi", "\\omicron", "\\pi", "\\rho", "\\sigma", "\\tau", "\\upsilon",
+    "\\phi", "\\chi", "\\psi", "\\omega" };
+
+    bool isGreekLetter = 0;
+
+    for (int i = 0; i < upperGreekLetter.size(); i++) {
+        if (workingStr == upperGreekLetter[i])
+            isGreekLetter = 1;
+    }
+
+    for (int i = 0; i < lowerGreekLetter.size(); i++) {
+        if (workingStr == lowerGreekLetter[i])
+            isGreekLetter = 1;
+    }
+
+    return isGreekLetter;
+}
