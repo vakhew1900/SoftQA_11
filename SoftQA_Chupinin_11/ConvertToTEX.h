@@ -1,0 +1,47 @@
+#pragma once
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <vector>
+#include <map>
+
+using namespace std;
+
+const int MAX_OPERAND_COUNT = 3; // максимальное количество операндов
+
+
+enum Exception
+{
+	EMPTY_STRING_EXCEPTION, //
+	FILE_IN_NOT_FOUND_EXCEPTION,
+	INCORRECT_EXTENSION_EXCEPTION,
+	INCORRECT_VAL_FORMAT_EXCEPTION,
+	INCORRECT_DIAPOSON_EXCEPTION,
+	EXCESS_OF_OPERANDS_EXCEPTION,
+	LACK_OF_OPERANDS_EXCEPTION
+
+};
+
+/*! конвертировать обратную польскую запись выражения на языке си в формулу TEX
+	\param[in] reversePolishEntry  обратная польская запись
+	\return  строка в tex формате
+*/
+string convertFormulaToTEX(string& reversePolishEntry);
+
+string convertSubFormulaToTEX(vector<string>& reversePolishEntryElements, int& curIndex, int& maxPriority);
+
+/*! разбиение строки по разделителям
+  \param[in] str строка
+  \param[in] seps разделители
+  \return  разбитые строки
+*/
+vector<string> split(string& str, string& seps);
+
+bool isVar(const string& str);
+bool isNumber(const string& str);
+bool isGreekLetter(const string& str);
+int isOperator(const string& str);
+int getPriorityOfOperator(string& str);
+void makeExternalBrackets(string& str);
+
+
+string convertOperatorToTex(string& str);
