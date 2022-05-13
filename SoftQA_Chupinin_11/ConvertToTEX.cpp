@@ -148,3 +148,16 @@ string convertOperatorToTex(const string& str)
 
     return operatorTex[str];
 }
+
+vector<string> split(string& str, string& seps)
+{
+    char* cstr = const_cast<char*>(str.c_str());
+    char* elementOfArr;
+    vector<string> arr;
+    elementOfArr = strtok(cstr, seps.c_str());
+    while (elementOfArr != NULL) {
+        arr.push_back(elementOfArr);
+        elementOfArr = strtok(NULL, seps.c_str());
+    }
+    return arr;
+}
