@@ -53,3 +53,21 @@ bool isGreekLetter(const string& str)
 
     return isGreekLetter;
 }
+
+bool isVar(const string& str) {
+
+    bool isVar = 1; // Считать, что строка является переменной
+
+    for (int i = 0; i < str.size(); i++) { // для всех элементов строки
+
+        if (str[i] != '_' && !isalnum(str[i]))  // элемент строки не является буквой, числом или нижнем подчеркиванием
+            isVar = 0; // Cчитать, что строка не является переменной
+    }
+
+    int varSize = str.size(); // длина строки
+    if (isdigit(str[0])) isVar = 0; //если первый элемент строки является числом, считать, что строка не является переменной 
+    if (varSize > 10) isVar = 0; //если длина строки больше 10 , считать, что строка не является переменной 
+
+
+    return isVar;
+}
