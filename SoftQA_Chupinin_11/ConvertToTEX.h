@@ -37,3 +37,5 @@ int isOperator(const string& str);
 int getPriorityOfOperator(string& str);
 
 
+string convertOperatorToTex(const string& str);
+
