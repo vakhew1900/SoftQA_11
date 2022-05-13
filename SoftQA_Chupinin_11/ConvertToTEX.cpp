@@ -1,6 +1,45 @@
 #include "ConvertToTEX.h"
 
 
+bool isNumber(const string& str)
+{
+    int minus = 0;
+    int point = 0;
+    bool isNumber = 1;
+    int numberSize = str.size();
+
+    for (int i = 0; i < str.size(); i++)
+    {
+        if (str[i] == '-')
+            minus++;
+        else  if (str[i] == '.')
+            point++;
+        else if (!isdigit(str[i]))
+            isNumber = 0;
+    }
+
+    if (point)
+    {
+        if (point > 1 || str[0] == '.' || str[str.size() - 1] == '.')
+            isNumber = 0;
+        numberSize--;
+    }
+
+    if (minus)
+    {
+        if (minus > 1 || str[0] != '-')
+            isNumber = 0;
+        numberSize--;
+    }
+
+    if (numberSize > 20)
+        isNumber = 0;
+
+    return isNumber;
+
+}
+
+
 int isOperator(const string& str)
 {
     int numberOfOperands = -1;
