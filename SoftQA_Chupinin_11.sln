@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "isVar_Test", "isVar_Test\is
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "getPriorityOfOperator_Test", "getPriorityOfOperator_Test\getPriorityOfOperator_Test.vcxproj", "{A11252C8-3049-4F6B-8B24-206C7D1FA460}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "isNumber_Test", "isNumber_Test\isNumber_Test.vcxproj", "{71542D39-7219-4B1C-90C0-4B22347793A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{A11252C8-3049-4F6B-8B24-206C7D1FA460}.Release|x64.Build.0 = Release|x64
 		{A11252C8-3049-4F6B-8B24-206C7D1FA460}.Release|x86.ActiveCfg = Release|Win32
 		{A11252C8-3049-4F6B-8B24-206C7D1FA460}.Release|x86.Build.0 = Release|Win32
+		{71542D39-7219-4B1C-90C0-4B22347793A2}.Debug|x64.ActiveCfg = Debug|x64
+		{71542D39-7219-4B1C-90C0-4B22347793A2}.Debug|x64.Build.0 = Debug|x64
+		{71542D39-7219-4B1C-90C0-4B22347793A2}.Debug|x86.ActiveCfg = Debug|Win32
+		{71542D39-7219-4B1C-90C0-4B22347793A2}.Debug|x86.Build.0 = Debug|Win32
+		{71542D39-7219-4B1C-90C0-4B22347793A2}.Release|x64.ActiveCfg = Release|x64
+		{71542D39-7219-4B1C-90C0-4B22347793A2}.Release|x64.Build.0 = Release|x64
+		{71542D39-7219-4B1C-90C0-4B22347793A2}.Release|x86.ActiveCfg = Release|Win32
+		{71542D39-7219-4B1C-90C0-4B22347793A2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
