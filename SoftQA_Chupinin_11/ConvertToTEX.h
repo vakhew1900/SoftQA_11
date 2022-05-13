@@ -35,5 +35,5 @@ bool isNumber(const string& str);
 bool isGreekLetter(const string& str);
 int isOperator(const string& str);
 int getPriorityOfOperator(string& str);
-void makeExternalBrackets(string& str);
+
 
