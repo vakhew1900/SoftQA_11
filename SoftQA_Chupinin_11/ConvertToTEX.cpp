@@ -52,15 +52,15 @@ int isOperator(const string& str)
     const vector <string> threeOperands = { "summator()" }; // массив операторов с тремя операндами
 
     for (int i = 0; i < oneOperand.size(); i++) // для всех операторов с одним операндом
-        if (str == oneOperand[i]) // если оператор равен строке
+        if (str == oneOperand[i]) // оператор равен строке
             numberOfOperands = 1; // считать, что количество операндов у оператора равна одному
 
     for (int i = 0; i < twoOperands.size(); i++) // для всех операторов с двумя операндами
-        if (str == twoOperands[i]) // если оператор в строке
+        if (str == twoOperands[i]) //  оператор в строке
             numberOfOperands = 2; // считать, что количество операндов у оператора равна двум
 
     for (int i = 0; i < threeOperands.size(); i++) // для всех операторов с тремя операндами
-        if (str == threeOperands[i]) // если оператор равен строке
+        if (str == threeOperands[i]) // оператор равен строке
             numberOfOperands = 3; // считать, что количество операндов у оператора равна трем
 
     return numberOfOperands; // вернуть количество операндов у оператора, если строка является оператором, иначе вернуть -1
@@ -81,12 +81,12 @@ bool isGreekLetter(const string& str)
     bool isGreekLetter = 0; // считать, что строка не является греческой буквой
 
     for (int i = 0; i < upperGreekLetter.size(); i++) {  // для всех заглавных греческих букв
-        if (workingStr == upperGreekLetter[i]) // если строка является заглавной греческой буквой
+        if (workingStr == upperGreekLetter[i]) //  строка является заглавной греческой буквой
             isGreekLetter = 1; // считать, что строка  является греческой буквой
     }
 
     for (int i = 0; i < lowerGreekLetter.size(); i++) { // для всех маленьких букв
-        if (workingStr == lowerGreekLetter[i]) // если строка является заглавной греческой буквой
+        if (workingStr == lowerGreekLetter[i]) //  строка является заглавной греческой буквой
             isGreekLetter = 1; // считать, что строка не является греческой буквой
     }
 
@@ -124,13 +124,14 @@ int getPriorityOfOperator(const string& str) {
      { "&&" },
      { "||" },
      { ",", ".." }
-    };
+    }; // вектор векторов нулевой вектор - это вектор элементов с приоритетом 0, первый вектор - вектор элементов с приоритетом - 1 и т.д.
 
-    int priority = -1; // int priority = 0 - не проверял -1
-    for (int i = 0; i < priorityOperators.size(); i++) {
-        for (int j = 0; j < priorityOperators[i].size(); j++) {
-            if (priorityOperators[i][j] == str)
-                priority = i;
+    int priority = -1; // считать, что строка не является оператором
+
+    for (int i = 0; i < priorityOperators.size(); i++) { // для всех приоритетов
+        for (int j = 0; j < priorityOperators[i].size(); j++) { // для всех операторов с приоритетом i
+            if (priorityOperators[i][j] == str) // строка равна оператору
+                priority = i; // приоритет строки равен приоритету оператора
         }
     }
 
