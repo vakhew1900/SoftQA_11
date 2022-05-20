@@ -68,29 +68,29 @@ int isOperator(const string& str)
 
 bool isGreekLetter(const string& str)
 {
-    string workingStr = "\\" + str;
+    string workingStr = "\\" + str; // добавить \ перед началом строки, для того, чтобы получить формат записи для TEX
 
     vector <string> upperGreekLetter = { "\\Alpha", "\\Beta", "\\Gamma", "\\Epsilon", "\\Zeta", "\\Eta", "\\Theta",
     "\\Iota", "\\Kappa", "\\Lambda", "\\Mu", "\\Nu", "\\Xi", "\\Omicron", "\\Pi", "\\Rho", "\\Sigma", "\\Tau", "\\Upsilon",
-    "\\Phi", "\\Chi", "\\Psi", "\\Omega" };
+    "\\Phi", "\\Chi", "\\Psi", "\\Omega" }; // греческие заглавные буквы
 
     vector <string> lowerGreekLetter = { "\\alpha", "\\beta", "\\gamma", "\\epsilon", "\\zeta", "\\eta", "\\theta",
     "\\iota", "\\kappa", "\\lambda", "\\mu", "\\nu", "\\xi", "\\omicron", "\\pi", "\\rho", "\\sigma", "\\tau", "\\upsilon",
-    "\\phi", "\\chi", "\\psi", "\\omega" };
+    "\\phi", "\\chi", "\\psi", "\\omega" }; // греческие маленькие буквы
 
-    bool isGreekLetter = 0;
+    bool isGreekLetter = 0; // считать, что строка не является греческой буквой
 
-    for (int i = 0; i < upperGreekLetter.size(); i++) {
-        if (workingStr == upperGreekLetter[i])
-            isGreekLetter = 1;
+    for (int i = 0; i < upperGreekLetter.size(); i++) {  // для всех заглавных греческих букв
+        if (workingStr == upperGreekLetter[i]) // если строка является заглавной греческой буквой
+            isGreekLetter = 1; // считать, что строка  является греческой буквой
     }
 
-    for (int i = 0; i < lowerGreekLetter.size(); i++) {
-        if (workingStr == lowerGreekLetter[i])
-            isGreekLetter = 1;
+    for (int i = 0; i < lowerGreekLetter.size(); i++) { // для всех маленьких букв
+        if (workingStr == lowerGreekLetter[i]) // если строка является заглавной греческой буквой
+            isGreekLetter = 1; // считать, что строка не является греческой буквой
     }
 
-    return isGreekLetter;
+    return isGreekLetter; 
 }
 
 bool isVar(const string& str) {
