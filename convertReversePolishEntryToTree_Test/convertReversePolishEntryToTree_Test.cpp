@@ -241,5 +241,111 @@ namespace convertReversePolishEntryToTreeTest
 			string result = treeToReversePolishEntry(tree);
 			Assert::AreEqual(expectedResult, result);
 		}
+
+
+		TEST_METHOD(IncorrectFormatOfVariable)
+		{
+			vector<string> reversePolishEntryElements = { "1", "x", "1x", "+", "+" };
+
+			ExpressionTree* tree;
+			Exception expectedException = INCORRECT_VAL_FORMAT_EXCEPTION;
+			Exception exception = EMPTY_STRING_EXCEPTION;
+
+			try {
+				tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			}
+			catch (Exception actualException) {
+
+				exception = actualException;
+			}
+
+
+			Assert::IsTrue(expectedException == exception);
+		}
+
+
+		TEST_METHOD(IncorrectCharInReversePolishEntry)
+		{
+			vector<string> reversePolishEntryElements = { "a", "b", "$" };
+
+			ExpressionTree* tree;
+			Exception expectedException = INCORRECT_VAL_FORMAT_EXCEPTION;
+			Exception exception = EMPTY_STRING_EXCEPTION;
+
+			try {
+				tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			}
+			catch (Exception actualException) {
+
+				exception = actualException;
+			}
+
+
+			Assert::IsTrue(expectedException == exception);
+		}
+
+
+
+
+		TEST_METHOD(IncorrectDiaposon)
+		{
+			vector<string> reversePolishEntryElements = { "1000000.1234567123011221204", "1373243" "+" };
+
+			ExpressionTree* tree;
+			Exception expectedException = INCORRECT_DIAPOSON_EXCEPTION;
+			Exception exception = EMPTY_STRING_EXCEPTION;
+
+			try {
+				tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			}
+			catch (Exception actualException) {
+
+				exception = actualException;
+			}
+
+
+			Assert::IsTrue(expectedException == exception);
+		}
+
+
+		TEST_METHOD(ExpressOfOperands)
+		{
+			vector<string> reversePolishEntryElements = { "a", "b", "c", "+" };
+
+			ExpressionTree* tree;
+			Exception expectedException = EXCESS_OF_OPERANDS_EXCEPTION;
+			Exception exception = EMPTY_STRING_EXCEPTION;
+
+			try {
+				tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			}
+			catch (Exception actualException) {
+
+				exception = actualException;
+			}
+
+
+			Assert::IsTrue(expectedException == exception);
+		}
+
+		TEST_METHOD(LackOfOperands)
+		{
+			vector<string> reversePolishEntryElements = { "a", "b", "+", "+", "+" };
+
+			ExpressionTree* tree;
+			Exception expectedException = LACK_OF_OPERANDS_EXCEPTION;
+			Exception exception = EMPTY_STRING_EXCEPTION;
+
+			try {
+				tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			}
+			catch (Exception actualException) {
+
+				exception = actualException;
+			}
+
+
+			Assert::IsTrue(expectedException == exception);
+		}
 	};
 }
