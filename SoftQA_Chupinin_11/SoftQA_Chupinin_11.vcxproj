@@ -142,9 +142,11 @@
     <ClCompile Include="ExpressionTree.cpp" />
     <ClCompile Include="SoftQA_Chupinin_11.cpp" />
     <ClCompile Include="ConvertToTEX.cpp" />
+    <ClCompile Include="convertTreeToTEX.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvertToTEX.h" />
+    <ClInclude Include="convertTreeToTEX.h" />
     <ClInclude Include="ExpressionTree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

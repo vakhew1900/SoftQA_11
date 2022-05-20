@@ -24,12 +24,18 @@
     <ClCompile Include="ExpressionTree.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="convertTreeToTEX.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvertToTEX.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ExpressionTree.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="convertTreeToTEX.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
