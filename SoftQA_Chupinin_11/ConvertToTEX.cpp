@@ -42,28 +42,28 @@ bool isNumber(const string& str)
 
 int isOperator(const string& str)
 {
-    int numberOfOperands = -1;
+    int numberOfOperands = -1; // Считать, что строка не является оператором
 
-    const vector<string> oneOperand = { "!", "all()", "exist()" };
+    const vector<string> oneOperand = { "!", "all()", "exist()" }; // массив операторов с одним операндом
 
     const vector<string> twoOperands = { "+", "-", "/", "*", "+-", "-+", "%", "=", "!=", ">=", "<=", ">", "<",
-         "&&", "||", ",", "..", "&", "|", "pow()", "sqrt()", "in()", "noin()", "_", "frac()" };
+         "&&", "||", ",", "..", "&", "|", "pow()", "sqrt()", "in()", "noin()", "_", "frac()" }; // массив операторов с двумя операндами
 
-    const vector <string> threeOperands = { "summator()" };
+    const vector <string> threeOperands = { "summator()" }; // массив операторов с тремя операндами
 
-    for (int i = 0; i < oneOperand.size(); i++)
-        if (str == oneOperand[i])
-            numberOfOperands = 1;
+    for (int i = 0; i < oneOperand.size(); i++) // для всех операторов с одним операндом
+        if (str == oneOperand[i]) // если оператор равен строке
+            numberOfOperands = 1; // считать, что количество операндов у оператора равна одному
 
-    for (int i = 0; i < twoOperands.size(); i++)
-        if (str == twoOperands[i])
-            numberOfOperands = 2;
+    for (int i = 0; i < twoOperands.size(); i++) // для всех операторов с двумя операндами
+        if (str == twoOperands[i]) // если оператор в строке
+            numberOfOperands = 2; // считать, что количество операндов у оператора равна двум
 
-    for (int i = 0; i < threeOperands.size(); i++)
-        if (str == threeOperands[i])
-            numberOfOperands = 3;
+    for (int i = 0; i < threeOperands.size(); i++) // для всех операторов с тремя операндами
+        if (str == threeOperands[i]) // если оператор равен строке
+            numberOfOperands = 3; // считать, что количество операндов у оператора равна трем
 
-    return numberOfOperands;
+    return numberOfOperands; // вернуть количество операндов у оператора, если строка является оператором, иначе вернуть -1
 }
 
 bool isGreekLetter(const string& str)
