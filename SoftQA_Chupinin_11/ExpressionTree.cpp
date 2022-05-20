@@ -10,29 +10,29 @@ ExpressionTree::~ExpressionTree()
 
 ExpressionTree::ExpressionTree(const string value)
 {
-	this->value = value;
+	this->value = value; // присвоить значение вершине дерева
 
-	if (isOperator(value) != -1) {
-		this->expressionElementType = OPERATOR;
-		this->texFormat = convertOperatorToTex(value);
-		this->operatorPriority = getPriorityOfOperator(value);
-		this->operandsCount = isOperator(value);
+	if (isOperator(value) != -1) { // значение является оператором
+		this->expressionElementType = OPERATOR; // считать, что тип вершины является оператором
+		this->texFormat = convertOperatorToTex(value); //  присвоить tex-формат оператоа
+		this->operatorPriority = getPriorityOfOperator(value); // определить приоритет у оператора
+		this->operandsCount = isOperator(value); // определить количество операндов у оператора
 	}
-	else if (isNumber(value))
+	else if (isNumber(value)) // значение является числом
 	{
-		this->expressionElementType = NUMBER;
+		this->expressionElementType = NUMBER; // считать, что тип вершины является числом
 	}
-	else if (isGreekLetter(value))
+	else if (isGreekLetter(value)) // значение является греческой буквой
 	{
-		this->expressionElementType = GREEKLETTER;
-		this->texFormat = "\\" + value;
+		this->expressionElementType = GREEKLETTER; //считать, что тип вершины является греческой буквой
+		this->texFormat = "\\" + value; // присвоить tex-формат для греческой буквы
 	}
-	else if (isVar(value)) {
-		this->expressionElementType = VAR;
+	else if (isVar(value)) { // значение является переменной
+		this->expressionElementType = VAR; // считать, что тип вершины является переменной
 	}
 	else
 	{
-		this->expressionElementType = UNDEFINED;
+		this->expressionElementType = UNDEFINED; // иначе считать, что тип вершины неопределен
 	}
 }
 
