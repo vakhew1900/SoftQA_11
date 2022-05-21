@@ -92,8 +92,8 @@ void ExpressionTree::addChild(string value)
 
 void ExpressionTree::deleteTree()
 {
-	for (int i = 0; i < this->operandsCount; i++) {
-		children[i]->deleteTree();
+	for (int i = 0; i < this->operandsCount; i++) { // ƒл€ всех детей вершины
+		children[i]->deleteTree(); // удалить ребенка вершины
 	}
 
 	delete this;
