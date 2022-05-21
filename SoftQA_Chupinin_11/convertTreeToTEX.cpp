@@ -97,3 +97,26 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 
 	return subFormula;
 }
+
+
+string convertFormulaToTex(string& reversePolishEntry)
+{
+	string seps = " \t"; // разделители
+	vector<string> reversePolishEntryElements = split(reversePolishEntry, seps); // конвертировать строку обратной польсокй записи в вектор элементов обратной польской записи
+
+	ExpressionTree* tree = NULL; // создаем вершину дерева
+
+	tree = convertReversePolishEntryToTree(reversePolishEntryElements); // преобразуем обратную польскую запись в дерево выражений
+
+	if (reversePolishEntryElements.size() != 0) { // в векторе обратной польской  польской остались непреобразованные элементы
+		// кинуть исключение
+	}
+
+
+	int maxPriority = 0; // приоритет
+	string texFormula = "$ " + convertSubFormulaToTex(tree, maxPriority) + " $"; // преобразуем дерево tex-формулу. Спереди и сзади дописываем знак $.
+
+	tree->deleteTree(); // удаляем дерево
+
+	return texFormula;
+}
