@@ -101,7 +101,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)SoftQA_Chupinin_11\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ConvertToTEX.obj;ExpressionTree.obj;SoftQA_Chupinin_11.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ConvertToTEX.obj;ExpressionTree.obj;convertTreeToTEX.obj;SoftQA_Chupinin_11.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

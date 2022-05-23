@@ -3,6 +3,12 @@
 ExpressionTree* convertReversePolishEntryToTree(vector<string>& reversePolishEntryElements)
 {
 	int lastElementNumber = reversePolishEntryElements.size() - 1; // номер последнего элемента в обратной польской записи
+
+
+	if (lastElementNumber < 0) { // элементов больше нет
+		throw LACK_OF_OPERANDS_EXCEPTION; // выбросить исключение
+	}
+
 	string value = reversePolishEntryElements[lastElementNumber];  // последний элемент обратной польской запии
 	reversePolishEntryElements.pop_back(); // удаляем элемент в конце вектора
 
@@ -21,11 +27,16 @@ ExpressionTree* convertReversePolishEntryToTree(vector<string>& reversePolishEnt
 			current->addChild(operands[i]);
 		}
 	}
-	else if (current->getExpressionElementType() == OPERATOR && reversePolishEntryElements.size() < current->getOperandsCount())
+	else if (current->getExpressionElementType() == OPERATOR && reversePolishEntryElements.size() < current->getOperandsCount()) // количество операндов меньше необходимого для данного оператора
 	{
-		// выкидываем исключение
+		throw LACK_OF_OPERANDS_EXCEPTION; // выбросить исключение
+	}
+	else if (current->getExpressionElementType() == UNDEFINED) // вершина дерева является неопределенным элементом обратной польской записи
+	{
+		throw INCORRECT_VAL_FORMAT_EXCEPTION; // выбросить исключение
 	}
 	
+
 	return current;
 }
 
@@ -39,7 +50,7 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 
 
 		string operands[MAX_OPERAND_COUNT] = {}; // массив операндов
-		int priority[MAX_OPERAND_COUNT]; // массив  приоритета операндов
+		int priority[MAX_OPERAND_COUNT] = {}; // массив  приоритета операндов
 
 		for (int i = current->getOperandsCount() - 1; i >= 0; i--) { // для всех операндов оператора
 			operands[i] = convertSubFormulaToTex(current->getChild(i), priority[i]); // находим операнд и его приоритет
