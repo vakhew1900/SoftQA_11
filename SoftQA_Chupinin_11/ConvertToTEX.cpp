@@ -1,39 +1,34 @@
 #include "ConvertToTEX.h"
-
+#include "boost/lexical_cast.hpp"
 
 bool isNumber(const string& str)
 {
-    int minus = 0;
-    int point = 0;
-    bool isNumber = 1;
-    int numberSize = str.size();
+    int minus = 0; // минус не найден
+    int point = 0; // точка не найдена
+    bool isNumber = 1; // считать, что строка является номером
+    int numberSize = str.size(); // количество значащих цифр
 
-    for (int i = 0; i < str.size(); i++)
-    {
-        if (str[i] == '-')
-            minus++;
-        else  if (str[i] == '.')
-            point++;
-        else if (!isdigit(str[i]))
-            isNumber = 0;
+    try {
+        double num = boost::lexical_cast<double> (str); // перевод из строки в число
+    }
+    catch (boost::bad_lexical_cast&) { // перевод не был осуществлен
+        isNumber = 0; // считать, что строка не является числом
     }
 
-    if (point)
-    {
-        if (point > 1 || str[0] == '.' || str[str.size() - 1] == '.')
-            isNumber = 0;
-        numberSize--;
+    minus = str.find("-"); // найти в строке минус
+
+    if (minus != -1) { // минус найден
+        numberSize--; // уменьшить количество значащих цифр на единицу
     }
 
-    if (minus)
-    {
-        if (minus > 1 || str[0] != '-')
-            isNumber = 0;
-        numberSize--;
+    point = str.find("."); // найти точку в строке
+    
+    if (point != -1) { // точка найдена
+        numberSize--; // уменьшить количество значащих цифр на единицу
     }
 
-    if (numberSize > 20)
-        isNumber = 0;
+    if (numberSize > 20) // количество значащих цифр в строке больше 20
+        isNumber = 0; // считать, что строка не является числом
 
     return isNumber;
 
