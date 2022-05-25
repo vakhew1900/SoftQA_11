@@ -307,27 +307,6 @@ namespace convertReversePolishEntryToTreeTest
 			Assert::IsTrue(expectedException == exception);
 		}
 
-
-		TEST_METHOD(ExpressOfOperands)
-		{
-			vector<string> reversePolishEntryElements = { "a", "b", "c", "+" };
-
-			ExpressionTree* tree;
-			Exception expectedException = EXCESS_OF_OPERANDS_EXCEPTION;
-			Exception exception = EMPTY_STRING_EXCEPTION;
-
-			try {
-				tree = convertReversePolishEntryToTree(reversePolishEntryElements);
-			}
-			catch (Exception actualException) {
-
-				exception = actualException;
-			}
-
-
-			Assert::IsTrue(expectedException == exception);
-		}
-
 		TEST_METHOD(LackOfOperands)
 		{
 			vector<string> reversePolishEntryElements = { "a", "b", "+", "+", "+" };

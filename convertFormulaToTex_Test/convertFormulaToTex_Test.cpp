@@ -173,5 +173,23 @@ namespace convertFormulaToTexTest
 
 			Assert::AreEqual(expectedTexFormula, texFormula);
 		}
+
+		TEST_METHOD(ExpressOfOperands)
+		{
+			string reversePolishEntry = "a b c +";
+			Exception expectedException = EXCESS_OF_OPERANDS_EXCEPTION;
+			Exception exception = EMPTY_STRING_EXCEPTION;
+
+			try {
+				string texFormula = convertFormulaToTex(reversePolishEntry);
+			}
+			catch (Exception actualException) {
+
+				exception = actualException;
+			}
+
+
+			Assert::IsTrue(expectedException == exception);
+		}
 	};
 }

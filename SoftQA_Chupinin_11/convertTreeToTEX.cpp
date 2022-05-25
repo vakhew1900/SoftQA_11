@@ -51,7 +51,6 @@ ExpressionTree* convertReversePolishEntryToTree(vector<string>& reversePolishEnt
 	{
 		throw INCORRECT_VAL_FORMAT_EXCEPTION; // выбросить исключение
 	}
-	
 
 	return current;
 }
@@ -146,7 +145,7 @@ string convertFormulaToTex(const string& reversePolishEntry)
 	tree = convertReversePolishEntryToTree(reversePolishEntryElements); // преобразуем обратную польскую запись в дерево выражений
 
 	if (reversePolishEntryElements.size() != 0) { // в векторе обратной польской  польской остались непреобразованные элементы
-		// кинуть исключение
+		throw EXCESS_OF_OPERANDS_EXCEPTION; // кинуть исключение
 	}
 
 
