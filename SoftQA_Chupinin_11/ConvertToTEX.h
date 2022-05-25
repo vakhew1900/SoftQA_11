@@ -28,7 +28,7 @@ enum Exception
   \param[in] seps разделители
   \return  разбитые строки
 */
-vector<string> split(string& str, string& seps);
+vector<string> split(const string& str, string& seps);
 
 bool isVar(const string& str);
 bool isNumber(const string& str);

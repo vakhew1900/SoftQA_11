@@ -2,7 +2,7 @@
 
 #include "ExpressionTree.h"
 
-string convertFormulaToTex(string& reversePolishEntry);
+string convertFormulaToTex(const string& reversePolishEntry);
 
 ExpressionTree* convertReversePolishEntryToTree(vector<string>& reversePolishEntryElements);
 

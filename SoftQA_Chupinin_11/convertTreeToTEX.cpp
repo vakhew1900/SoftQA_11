@@ -1,4 +1,6 @@
 #include "convertTreeToTEX.h"
+#include <boost/algorithm/string.hpp>
+#include <boost/regex.hpp>
 
 ExpressionTree* convertReversePolishEntryToTree(vector<string>& reversePolishEntryElements)
 {
@@ -110,10 +112,20 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 }
 
 
-string convertFormulaToTex(string& reversePolishEntry)
+string convertFormulaToTex(const string& reversePolishEntry)
 {
 	string seps = " \t"; // разделители
-	vector<string> reversePolishEntryElements = split(reversePolishEntry, seps); // конвертировать строку обратной польсокй записи в вектор элементов обратной польской записи
+	vector <string> reversePolishEntryElements; // вектор элементов обратной польской записи
+	
+	string workingReversePolishEntry = reversePolishEntry; // создаем копию обратной польской записи, с которой и будем работать
+
+	while (seps.find(workingReversePolishEntry[workingReversePolishEntry.size() - 1]) != -1) // пока в конце строки обратной польской записи присутствует разделитель
+	{
+		workingReversePolishEntry.pop_back(); // удаляем разделитель
+	}
+
+	
+	boost::split(reversePolishEntryElements, workingReversePolishEntry,boost::is_any_of(seps), boost ::token_compress_on); // преобразуем строку обратной  польской записи в вектор элементов обратной польской записи
 
 	ExpressionTree* tree = NULL; // создаем вершину дерева
 
