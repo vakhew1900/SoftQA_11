@@ -289,7 +289,7 @@ namespace convertReversePolishEntryToTreeTest
 
 		TEST_METHOD(IncorrectDiaposon)
 		{
-			vector<string> reversePolishEntryElements = { "1000000.1234567123011221204", "1373243" "+" };
+			vector<string> reversePolishEntryElements = { "1000000.1234567123011221204", "1373243", "+" };
 
 			ExpressionTree* tree;
 			Exception expectedException = INCORRECT_DIAPOSON_EXCEPTION;

@@ -81,7 +81,7 @@ bool isGreekLetter(const string& str)
     }
 
     for (int i = 0; i < lowerGreekLetter.size(); i++) { // для всех маленьких букв
-        if (workingStr == lowerGreekLetter[i]) //  строка является заглавной греческой буквой
+        if (workingStr == lowerGreekLetter[i]) // строка является заглавной греческой буквой
             isGreekLetter = 1; // считать, что строка не является греческой буквой
     }
 

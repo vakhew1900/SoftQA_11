@@ -21,15 +21,6 @@ enum Exception
 
 };
 
-
-
-/*! разбиение строки по разделителям
-  \param[in] str строка
-  \param[in] seps разделители
-  \return  разбитые строки
-*/
-vector<string> split(const string& str, string& seps);
-
 bool isVar(const string& str);
 bool isNumber(const string& str);
 bool isGreekLetter(const string& str);

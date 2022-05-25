@@ -1,6 +1,7 @@
 #include "convertTreeToTEX.h"
 #include <boost/algorithm/string.hpp>
 #include <boost/regex.hpp>
+#include "boost/lexical_cast.hpp"
 
 ExpressionTree* convertReversePolishEntryToTree(vector<string>& reversePolishEntryElements)
 {
@@ -15,6 +16,19 @@ ExpressionTree* convertReversePolishEntryToTree(vector<string>& reversePolishEnt
 	reversePolishEntryElements.pop_back(); // удаляем элемент в конце вектора
 
 	ExpressionTree* current = new ExpressionTree(value); // создаем новую вершину в наше дерево
+
+	bool is_number = 1; // считать, что последний элемент обратной польской записи является числом
+
+	try {
+		double num = boost::lexical_cast<double> (value); // перевод из строки в число
+	}
+	catch (boost::bad_lexical_cast&) { // перевод не был осуществлен
+		is_number = 0; // считать, что строка не является числом
+	}
+
+	if (isNumber(value) == 0 && is_number == 1) { // количество значимых цифр больше 20
+		throw INCORRECT_DIAPOSON_EXCEPTION; // выбросить исключение
+	}
 
 
 	if (current->getExpressionElementType() == OPERATOR && reversePolishEntryElements.size() >= current->getOperandsCount()) { // новая вершина является оператором и количество элементов в векторе достаточно, чтобы заполнить их операндами для данной операции
