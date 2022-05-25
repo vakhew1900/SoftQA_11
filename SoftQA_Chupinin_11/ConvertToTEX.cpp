@@ -139,6 +139,42 @@ int getPriorityOfOperator(const string& str) {
     return priority;
 }
 
+void handleExceptions(Exception exception)
+{   
+    setlocale(LC_ALL, "Russian");
+    switch (exception)
+    {
+        case EMPTY_STRING_EXCEPTION:
+            cout << "Вводится пустая строка" << endl;
+            break;
+    
+        case FILE_IN_NOT_FOUND_EXCEPTION:
+            cout << "Неверно указан файл с входными данными. Возможно, файл не существует" << endl;
+            break;
+
+        case INCORRECT_EXTENSION_EXCEPTION:
+            cout << "Неверно указано расширение файла. Файл должен иметь расширение .txt " << endl;
+            break;
+
+        case INCORRECT_VAL_FORMAT_EXCEPTION:
+            cout << "Неопознанный элемент обратной польской записи " << endl;
+            break;
+
+        case INCORRECT_DIAPOSON_EXCEPTION:
+            cout << "Количество значимых цифр в числе больше максимально возможного " << endl;
+            break;
+
+        case EXCESS_OF_OPERANDS_EXCEPTION:
+            cout <<"Количество операций  недостаточно для данного количества операндов "<< endl;
+            break;
+
+        case LACK_OF_OPERANDS_EXCEPTION:
+            cout << "Количество операций больше необходимого количества " << endl;
+    }
+    
+
+}
+
 string convertOperatorToTex(const string& str)
 {
     // словарь оператор. Ключ - оператор в Си формате, значение - оператор в TEX-формате

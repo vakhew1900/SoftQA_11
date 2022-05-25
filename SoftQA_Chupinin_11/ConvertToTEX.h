@@ -27,6 +27,7 @@ bool isGreekLetter(const string& str);
 int isOperator(const string& str);
 int getPriorityOfOperator(const string& str);
 
+void handleExceptions(Exception exception);
 
 string convertOperatorToTex(const string& str);
 

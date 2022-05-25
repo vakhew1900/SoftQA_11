@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
     }
     catch (Exception ex)
     {
-        cout << "error" << "\n";
+        handleExceptions(ex);
     }
     cout << ans << "\n";
 }
