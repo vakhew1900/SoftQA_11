@@ -45,10 +45,10 @@ int isOperator(const string& str)
 {
     int numberOfOperands = -1; // Считать, что строка не является оператором
 
-    const vector<string> oneOperand = { "!", "all()", "exist()" }; // массив операторов с одним операндом
+    const vector<string> oneOperand = { "!", "all()", "exist()", "--"}; // массив операторов с одним операндом
 
     const vector<string> twoOperands = { "+", "-", "/", "*", "+-", "-+", "%", "=", "!=", ">=", "<=", ">", "<",
-         "&&", "||", ",", "..", "&", "|", "pow()", "sqrt()", "in()", "noin()", "_", "frac()" }; // массив операторов с двумя операндами
+         "&&", "||", ",", "..", "&", "|", "pow()", "sqrt()", "in()", "noin()", "_", "frac()"}; // массив операторов с двумя операндами
 
     const vector <string> threeOperands = { "summator()" }; // массив операторов с тремя операндами
 
@@ -119,7 +119,7 @@ int getPriorityOfOperator(const string& str) {
      { "in()", "noin()"},
      {"pow()", "sqrt()"},
      { "*", "/", "%", "frac()", "&"},
-     { "+", "-", "+-", "-+", "|"},
+     { "+", "-", "+-", "-+", "|", "--"},
      { ">=", "<=", ">", "<" },
      { "=", "!=" },
      { "&&" },
@@ -146,9 +146,7 @@ string convertOperatorToTex(const string& str)
         {"+-", "\\pm"}, {"-+","\\mp"}, {"%", "\\mod"}, {"=", "="}, {">=", "\\geq"}, {"<=", "\\leq"},
         {"!=", "\\neq"}, {">",">"}, {"<","<"}, {"&&", "\\wedge"},{"||","\\vee"}, {"&","\\cap"}, {"|","\\cup"}, {",", ","},
         {"..", ".."}, {"frac()", "\\frac"}, {"pow()","^"}, {"_","_"}, {"sqrt()","\\sqrt"}, {"in()", "\\in"}, {"noin()", "\\notin"},
-        {"!","\\overline"}, {"all()", "\\forall"}, {"exist()", "\\exists"}, {"summator()","\\sum"} }; 
-
-    
+        {"!","\\overline"}, {"all()", "\\forall"}, {"exist()", "\\exists"}, {"summator()","\\sum"}, {"--","-"} };
 
     return operatorTex[str]; 
 }

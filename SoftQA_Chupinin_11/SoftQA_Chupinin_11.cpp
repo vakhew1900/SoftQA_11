@@ -9,7 +9,13 @@ int main(int argc, char* argv[])
 {
     string s;
     getline(cin, s);
-
-    string ans = convertFormulaToTex(s);
+    string ans;
+    try {
+        ans = convertFormulaToTex(s);
+    }
+    catch (Exception ex)
+    {
+        cout << "error" << "\n";
+    }
     cout << ans << "\n";
 }

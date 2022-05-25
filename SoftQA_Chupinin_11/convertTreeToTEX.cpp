@@ -63,7 +63,7 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 
 	if (current->getExpressionElementType() == OPERATOR) { // если проверяемая вершина является оператором
 
-
+		curPriority = current->getOperatorPriority(); // корректный приоритет
 		string operands[MAX_OPERAND_COUNT] = {}; // массив операндов
 		int priority[MAX_OPERAND_COUNT] = {}; // массив  приоритета операндов
 
@@ -91,8 +91,6 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 				subFormula = operatorTex + "{ " + operands[0] + " }" + " { " + operands[1] + " }"; // перевести подстроку в tex-формат
 			}
 			else {
-
-				curPriority = current->getOperatorPriority(); // корректный приоритет
 
 				if (curPriority < priority[0]) operands[0] = "(" + operands[0] + ")"; // если приоритет текущей операции выше приоритета операции левого операнда, взять левый операнд в скобки
 				if (curPriority < priority[1]) operands[1] = "(" + operands[1] + ")"; // если приоритет текущей операции выше приоритета операции правого операнда, взять правый операнд в скобки
@@ -142,7 +140,12 @@ string convertFormulaToTex(const string& reversePolishEntry)
 
 	ExpressionTree* tree = NULL; // создаем вершину дерева
 
-	tree = convertReversePolishEntryToTree(reversePolishEntryElements); // преобразуем обратную польскую запись в дерево выражений
+	try {
+		tree = convertReversePolishEntryToTree(reversePolishEntryElements); // преобразуем обратную польскую запись в дерево выражений
+	}
+	catch (Exception ex) {
+		throw ex;
+	}
 
 	if (reversePolishEntryElements.size() != 0) { // в векторе обратной польской  польской остались непреобразованные элементы
 		throw EXCESS_OF_OPERANDS_EXCEPTION; // кинуть исключение
