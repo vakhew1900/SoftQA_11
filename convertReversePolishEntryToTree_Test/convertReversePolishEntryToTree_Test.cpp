@@ -330,14 +330,18 @@ namespace convertReversePolishEntryToTreeTest
 		TEST_METHOD(NegativeNumber)
 		{
 			vector<string> reversePolishEntryElements = { "-1" };
-			string expectedResult = "-1";
 
 			ExpressionTree* tree;
 
 			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
 
-			string result = treeToReversePolishEntry(tree);
-			Assert::AreEqual(expectedResult, result);
+			string expectedVal1 = "--";
+			string val1 = tree->getValue();
+			string expectedVal2 = "1";
+			string val2 = tree->getChild(0)->getValue();
+
+			Assert::AreEqual(expectedVal1, val1);
+			Assert::AreEqual(expectedVal2, val2);
 		}
 	};
 }
