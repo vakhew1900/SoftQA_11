@@ -215,3 +215,10 @@ void readFile(string& fileName, string& reversePolishEntry) {
     }
 
 }
+
+void writeToFile(string& fileName, string& texFormula) {
+
+    ofstream fout;
+    fout.open(fileName);
+    fout << texFormula;
+}

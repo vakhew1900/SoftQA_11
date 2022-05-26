@@ -13,12 +13,13 @@ int main(int argc, char* argv[])
 	try
 	{
 		cout << argv[1] << "\n";
-		string fileName(argv[1]);
-		readFile(fileName, s);
+		string inputFileName(argv[1]);
+		readFile(inputFileName, s);
 
 		string ans = convertFormulaToTex(s);
-
-		cout << ans << "\n";
+		
+		string outputFileName(argv[2]);
+		writeToFile(outputFileName, ans);
 	}
 	catch (Exception ex)
 	{
@@ -27,14 +28,4 @@ int main(int argc, char* argv[])
 }
 
 
-//string s;
-//getline(cin, s);
-//string ans;
-//try {
-//    ans = convertFormulaToTex(s);
-//}
-//catch (Exception ex)
-//{
-//    handleExceptions(ex);
-//}
-//cout << ans << "\n";
+ 
