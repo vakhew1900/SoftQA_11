@@ -326,5 +326,18 @@ namespace convertReversePolishEntryToTreeTest
 
 			Assert::IsTrue(expectedException == exception);
 		}
+
+		TEST_METHOD(NegativeNumber)
+		{
+			vector<string> reversePolishEntryElements = { "-1" };
+			string expectedResult = "-1";
+
+			ExpressionTree* tree;
+
+			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+
+			string result = treeToReversePolishEntry(tree);
+			Assert::AreEqual(expectedResult, result);
+		}
 	};
 }
