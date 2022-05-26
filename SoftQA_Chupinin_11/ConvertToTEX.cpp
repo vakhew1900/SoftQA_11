@@ -172,6 +172,16 @@ void handleExceptions(Exception exception)
 
         case LACK_OF_OPERANDS_EXCEPTION:
             cout << "Количество операций больше необходимого количества " << endl;
+            break;
+        
+        case LACK_OF_CONSOLE_ARGUMENT:
+                cout << "Недостаточное количество аргументов" << endl;
+                break;
+
+        case INCORRECT_EXTENSION_OUTPUT_EXCEPTION:
+            cout << "Неправильное расширение файла. Файл должен иметь расширение .tex" << endl;
+            break;
+
     }
     
 
