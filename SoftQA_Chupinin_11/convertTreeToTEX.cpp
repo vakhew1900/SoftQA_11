@@ -174,3 +174,4 @@ string convertFormulaToTex(const string& reversePolishEntry)
 
 	return texFormula;
 }
+

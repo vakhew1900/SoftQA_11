@@ -31,3 +31,4 @@ void handleExceptions(Exception exception);
 
 string convertOperatorToTex(const string& str);
 
+void readFile(string& fileName, string& reversePolishEntry);

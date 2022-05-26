@@ -1,4 +1,6 @@
 #include "ConvertToTEX.h"
+#include <boost/algorithm/string.hpp>
+#include <fstream>
 #include "boost/lexical_cast.hpp"
 
 bool isNumber(const string& str)
@@ -185,4 +187,31 @@ string convertOperatorToTex(const string& str)
         {"!","\\overline"}, {"all()", "\\forall"}, {"exist()", "\\exists"}, {"summator()","\\sum"}, {"--","-"} };
 
     return operatorTex[str]; 
+}
+
+
+void readFile(string& fileName, string& reversePolishEntry) {
+
+    string extension = ".txt";
+
+    bool isEndWith = boost::algorithm::ends_with(fileName, extension);
+
+    if (isEndWith) {
+        ifstream fin(fileName);
+
+        if (fin.fail()) {
+            throw FILE_IN_NOT_FOUND_EXCEPTION;
+        }
+
+        getline(fin, reversePolishEntry);
+
+        if (reversePolishEntry.empty()) {
+            throw EMPTY_STRING_EXCEPTION;
+        }
+    }
+    else
+    {
+        throw INCORRECT_EXTENSION_EXCEPTION;
+    }
+
 }
