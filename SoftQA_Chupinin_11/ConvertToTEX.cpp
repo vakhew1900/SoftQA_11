@@ -192,33 +192,33 @@ string convertOperatorToTex(const string& str)
 
 void readFile(string& fileName, string& reversePolishEntry) {
 
-    string extension = ".txt";
+    string extension = ".txt"; // допустимое расширение файла
 
-    bool isEndWith = boost::algorithm::ends_with(fileName, extension);
+    bool isEndWith = boost::algorithm::ends_with(fileName, extension); 
 
-    if (isEndWith) {
-        ifstream fin(fileName);
+    if (isEndWith) { // файл имеет необходимое расширение
+        ifstream fin(fileName); // открыть файл
 
-        if (fin.fail()) {
-            throw FILE_IN_NOT_FOUND_EXCEPTION;
+        if (fin.fail()) { // файла не существует
+            throw FILE_IN_NOT_FOUND_EXCEPTION; // выбросить исключение
         }
 
-        getline(fin, reversePolishEntry);
+        getline(fin, reversePolishEntry); // считать содержимое файла
 
-        if (reversePolishEntry.empty()) {
-            throw EMPTY_STRING_EXCEPTION;
+        if (reversePolishEntry.empty()) { // считанная строка пустая 
+            throw EMPTY_STRING_EXCEPTION; // выбросить исключение
         }
     }
     else
     {
-        throw INCORRECT_EXTENSION_EXCEPTION;
+        throw INCORRECT_EXTENSION_EXCEPTION; // выбросить исключение
     }
 
 }
 
 void writeToFile(string& fileName, string& texFormula) {
 
-    ofstream fout;
-    fout.open(fileName);
-    fout << texFormula;
+    ofstream fout; // поток
+    fout.open(fileName); // открыть/создать файл
+    fout << texFormula; // записать данные в файл
 }
