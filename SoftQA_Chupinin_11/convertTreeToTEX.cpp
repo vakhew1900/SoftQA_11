@@ -113,6 +113,7 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 				}
 				else {
 					if (curPriority < priority[1]) operands[1] = "(" + operands[1] + ")"; // если приоритет текущей операции выше приоритета операции правого операнда, взять правый операнд в скобки
+					if (operands[1][0] == '-' ) operands[1] = "(" + operands[1] + ")"; // если второй операнд начинается с минуса, то оборачиваем выражение опернад в скобки 
 					subFormula = operands[0] + " " + operatorTex + " " + operands[1];
 				}
 			}
