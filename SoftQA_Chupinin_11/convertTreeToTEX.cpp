@@ -14,9 +14,17 @@ ExpressionTree* convertReversePolishEntryToTree(vector<string>& reversePolishEnt
 
 	string value = reversePolishEntryElements[lastElementNumber];  // последний элемент обратной польской запии
 	reversePolishEntryElements.pop_back(); // удаляем элемент в конце вектора
+	ExpressionTree* current;
 
-	ExpressionTree* current = new ExpressionTree(value); // создаем новую вершину в наше дерево
-
+	if (isNumber(value) && value[0] == '-') // элемент обратной польской записи является отрицательным числом
+	{
+		current = new ExpressionTree("--"); // создаем новую вершину в наше дерево со значением одиночного минуса
+		value.erase(0,1); // удаляем минус из значение
+		reversePolishEntryElements.push_back(value); // добавляем значение в вектор элементов обратной польской записи
+	}
+	else {
+		 current = new ExpressionTree(value); // создаем новую вершину в наше дерево
+	}
 	bool is_number = 1; // считать, что последний элемент обратной польской записи является числом
 
 	try {
@@ -75,8 +83,12 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 		int currentOperandsCount = current->getOperandsCount(); // количество операндов у оператора
 		string operatorTex = current->getTexFormat(); // переводим оператор в tex-формат
 
-		if (currentOperandsCount == 1) { // количество операндов равно  1
+		if (currentOperandsCount == 1 && current-> getValue() != "--") { // количество операндов равно  1 и оператор не является одиночным минусом
 			subFormula = operatorTex + " {" + operands[0] + "}"; // перевести подстроку в tex-формат
+		}
+
+		if (currentOperandsCount == 1 && current->getValue() == "--") { // количество операндов равно  1 и оператор  является одиночным минусом
+			subFormula = operatorTex + operands[0]; // перевести подстроку в tex-формат
 		}
 
 		if (currentOperandsCount == 2) // количество операндов равно 2
@@ -93,14 +105,16 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 			else {
 
 				if (curPriority < priority[0]) operands[0] = "(" + operands[0] + ")"; // если приоритет текущей операции выше приоритета операции левого операнда, взять левый операнд в скобки
-				if (curPriority < priority[1]) operands[1] = "(" + operands[1] + ")"; // если приоритет текущей операции выше приоритета операции правого операнда, взять правый операнд в скобки
+				
 
-				if (value == "pow()") // опер
+				if (value == "pow()") // оператор является возведением в степень
 				{
 					subFormula = operands[0] + " " + operatorTex + " {" + operands[1] + "}";
 				}
-				else
+				else {
+					if (curPriority < priority[1]) operands[1] = "(" + operands[1] + ")"; // если приоритет текущей операции выше приоритета операции правого операнда, взять правый операнд в скобки
 					subFormula = operands[0] + " " + operatorTex + " " + operands[1];
+				}
 			}
 
 		}
