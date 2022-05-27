@@ -106,8 +106,14 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 
 				if (curPriority < priority[0] && (operands[0][0] != '-' || value == "pow()")) operands[0] = "(" + operands[0] + ")"; // если приоритет текущей операции выше приоритета операции левого операнда и отстутсвует одинарный минус в начале операнда ИЛИ производится возведение в степень, взять левый операнд в скобки
 				
-				if (value == "*" && (isNumber(operands[0]) && isVar(operands[1]) // операция умножения числа на  переменную
-						|| isNumber(operands[1]) && isVar(operands[0])) ) { 
+				bool is_number = isNumber(operands[0]) ||  isNumber(operands[1]); // один из операндов число
+
+				bool is_var = current->getChild(0)->getExpressionElementType() == VAR || current->getChild(1)->getExpressionElementType() == VAR; // один из операндов переменная
+
+				bool is_greek_letter = current->getChild(0)->getExpressionElementType() == GREEKLETTER  || current->getChild(1)->getExpressionElementType() == GREEKLETTER; // один из операндов греческая буква
+				
+
+				if (value == "*"  && (is_var || is_greek_letter)  && is_number ) { // происходит умножение  числа на переменную/число
 
 					if (isNumber(operands[1])) { // правый операнд число
 						swap(operands[0], operands[1]); // поменять местами операнды
@@ -115,7 +121,6 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 
 					subFormula = operands[0] + operands[1]; // подстрока равна соединению левого операнда и права оператора
 				}
-				
 				else if (value == "pow()") // оператор является возведением в степень
 				{
 					subFormula = operands[0] + " " + operatorTex + " {" + operands[1] + "}";

@@ -228,10 +228,37 @@ namespace convertSubFornulaToTexTest
 		}
 
 
-		TEST_METHOD(MultiplicationOfNumberAndVariableWithLengthOf1)
+		TEST_METHOD(MultiplicationOfNumberAndVariable)
 		{
 			vector<string> reversePolishEntryElements = { "10", "A", "*" };
 			string expectedTexFormula = "10A";
+
+			ExpressionTree* tree = NULL;
+			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			int maxPriority = 0;
+
+			string texFormula = convertSubFormulaToTex(tree, maxPriority);
+
+			Assert::AreEqual(expectedTexFormula, texFormula);
+		}
+
+		TEST_METHOD(MultiplicationOfVariableAndNumber)
+		{
+			vector<string> reversePolishEntryElements = { "A", "10", "*" };
+			string expectedTexFormula = "10A";
+
+			ExpressionTree* tree = NULL;
+			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			int maxPriority = 0;
+
+			string texFormula = convertSubFormulaToTex(tree, maxPriority);
+
+			Assert::AreEqual(expectedTexFormula, texFormula);
+		}
+		TEST_METHOD(MultiplicationOfNumberAndGreekLetter)
+		{
+			vector<string> reversePolishEntryElements = { "alpha", "10", "*" };
+			string expectedTexFormula = "10\\alpha";
 
 			ExpressionTree* tree = NULL;
 			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
