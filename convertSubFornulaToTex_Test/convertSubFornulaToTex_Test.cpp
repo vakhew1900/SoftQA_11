@@ -212,19 +212,6 @@ namespace convertSubFornulaToTexTest
 		}
 
 
-		TEST_METHOD(MultiplicationOfTwoVariablesOfLength1)
-		{
-			vector<string> reversePolishEntryElements = { "A", "B", "*" };
-			string expectedTexFormula = "AB";
-
-			ExpressionTree* tree = NULL;
-			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
-			int maxPriority = 0;
-
-			string texFormula = convertSubFormulaToTex(tree, maxPriority);
-
-			Assert::AreEqual(expectedTexFormula, texFormula);
-		}
 
 		TEST_METHOD(MultiplicationOfTwoVariableOfDifferentLength)
 		{
