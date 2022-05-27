@@ -104,17 +104,27 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 			}
 			else {
 
-				if (curPriority < priority[0]) operands[0] = "(" + operands[0] + ")"; // если приоритет текущей операции выше приоритета операции левого операнда, взять левый операнд в скобки
+				if (curPriority < priority[0] && (operands[0][0] != '-' || value == "pow()")) operands[0] = "(" + operands[0] + ")"; // если приоритет текущей операции выше приоритета операции левого операнда и отстутсвует одинарный минус в начале операнда ИЛИ производится возведение в степень, взять левый операнд в скобки
 				
+				if (value == "*" && (isNumber(operands[0]) && isVar(operands[1]) // операция умножения числа на  переменную
+						|| isNumber(operands[1]) && isVar(operands[0])) ) { 
 
-				if (value == "pow()") // оператор является возведением в степень
+					if (isNumber(operands[1])) { // правый операнд число
+						swap(operands[0], operands[1]); // поменять местами операнды
+					}
+
+					subFormula = operands[0] + operands[1]; // подстрока равна соединению левого операнда и права оператора
+				}
+				
+				else if (value == "pow()") // оператор является возведением в степень
 				{
 					subFormula = operands[0] + " " + operatorTex + " {" + operands[1] + "}";
 				}
-				else {
+				else 
+				{
 					if (curPriority < priority[1]) operands[1] = "(" + operands[1] + ")"; // если приоритет текущей операции выше приоритета операции правого операнда, взять правый операнд в скобки
 					if (operands[1][0] == '-' ) operands[1] = "(" + operands[1] + ")"; // если второй операнд начинается с минуса, то оборачиваем выражение опернад в скобки 
-					subFormula = operands[0] + " " + operatorTex + " " + operands[1];
+					subFormula = operands[0] + " " + operatorTex + " " + operands[1]; // создаем подформулу
 				}
 			}
 

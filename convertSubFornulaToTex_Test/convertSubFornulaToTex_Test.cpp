@@ -288,7 +288,7 @@ namespace convertSubFornulaToTexTest
 		TEST_METHOD(MulWithNegative)
 		{
 			vector<string> reversePolishEntryElements = { "a",  "-2", "*" };
-			string expectedTexFormula = "a \\cdot (-2)";
+			string expectedTexFormula = "-2a";
 			ExpressionTree* tree = NULL;
 			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
 			int maxPriority = 0;
