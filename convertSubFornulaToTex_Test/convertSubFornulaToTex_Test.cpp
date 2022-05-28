@@ -366,6 +366,32 @@ namespace convertSubFornulaToTexTest
 			Assert::AreEqual(expectedTexFormula, texFormula);
 		}
 
+		TEST_METHOD(Fraction)
+		{
+			vector<string> reversePolishEntryElements = { "a", "b", "frac()"};
+			string expectedTexFormula = "\\frac { a } { b }";
+			ExpressionTree* tree = NULL;
+			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			int maxPriority = 0;
+
+			string texFormula = convertSubFormulaToTex(tree, maxPriority);
+
+			Assert::AreEqual(expectedTexFormula, texFormula);
+		}
+
+		TEST_METHOD(FractionWithComplexNumeratorAndMarker)
+		{
+			vector<string> reversePolishEntryElements = { "a", "b", "+", "10", "a", "*", "frac()" };
+			string expectedTexFormula = "\\frac { a + b } { 10a }";
+			ExpressionTree* tree = NULL;
+			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			int maxPriority = 0;
+
+			string texFormula = convertSubFormulaToTex(tree, maxPriority);
+
+			Assert::AreEqual(expectedTexFormula, texFormula);
+		}
+
 
 	};
 }
