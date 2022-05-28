@@ -96,6 +96,7 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 			string value = current->getValue(); // значение вершины
 
 			if (value == "sqrt()") { // значение является корнем
+
 				subFormula = operatorTex + "[ " + operands[0] + " ]" + " { " + operands[1] + " }"; // перевести подстроку в tex-формат
 			}
 
@@ -128,7 +129,17 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 				else 
 				{
 					if (curPriority < priority[1]) operands[1] = "(" + operands[1] + ")"; // если приоритет текущей операции выше приоритета операции правого операнда, взять правый операнд в скобки
-					if (operands[1][0] == '-' ) operands[1] = "(" + operands[1] + ")"; // если второй операнд начинается с минуса, то оборачиваем выражение опернад в скобки 
+					if (operands[1][0] == '-') { // второй операнд начинается с минуса, то оборачиваем выражение опернад в скобки 
+						if (operands[1].find(' ') != -1) { // граница операнда найдена
+							int position = operands[1].find(" "); // найти позицию разделителя
+							operands[1].insert(position, ")");  // вставить скобку после операндаы
+							operands[1] = "(" + operands[1]; // вставить скобку перед операндом
+						}
+						else // иначе
+						{
+							operands[1] = "(" + operands[1] + ")"; // окружить операнд скобками
+						}
+					}
 					subFormula = operands[0] + " " + operatorTex + " " + operands[1]; // создаем подформулу
 				}
 			}

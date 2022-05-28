@@ -337,6 +337,35 @@ namespace convertSubFornulaToTexTest
 
 			Assert::AreEqual(expectedTexFormula, texFormula);
 		}
-	
+		
+
+		TEST_METHOD(SeveralOperandsWithNegativeAndValue)
+		{
+			vector<string> reversePolishEntryElements = { "a", "-1", "b", "*", "+"};
+			string expectedTexFormula = "a + (-1b)";
+			ExpressionTree* tree = NULL;
+			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			int maxPriority = 0;
+
+			string texFormula = convertSubFormulaToTex(tree, maxPriority);
+
+			Assert::AreEqual(expectedTexFormula, texFormula);
+		}
+
+
+		TEST_METHOD(SeveralOperandsWithTwoNegative)
+		{
+			vector<string> reversePolishEntryElements = { "a", "-1", "2", "*", "+" };
+			string expectedTexFormula = "a + (-1) \\cdot 2";
+			ExpressionTree* tree = NULL;
+			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			int maxPriority = 0;
+
+			string texFormula = convertSubFormulaToTex(tree, maxPriority);
+
+			Assert::AreEqual(expectedTexFormula, texFormula);
+		}
+
+
 	};
 }
