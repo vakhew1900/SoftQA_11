@@ -97,9 +97,15 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 
 			if (value == "sqrt()") { // значение является корнем
 
-				subFormula = operatorTex + "[ " + operands[0] + " ]" + " { " + operands[1] + " }"; // перевести подстроку в tex-формат
-			}
+				if (operands[0] == "2") // корень второй степени
+				{
+					subFormula = operatorTex + "{" + operands[1] + "}"; // опустить первый операнд
+				}
+				else {
+					subFormula = operatorTex + "[ " + operands[0] + " ]" + " { " + operands[1] + " }"; // перевести подстроку в tex-формат'
 
+				}
+			}
 			else if (value == "frac()") { // значение является дробью
 				subFormula = operatorTex + "{ " + operands[0] + " }" + " { " + operands[1] + " }"; // перевести подстроку в tex-формат
 			}
