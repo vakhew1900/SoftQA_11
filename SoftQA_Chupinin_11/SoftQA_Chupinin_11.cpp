@@ -38,6 +38,10 @@ int main(int argc, char* argv[])
 	{
 		handleExceptions(ex); // обработать исключение
 	}
+	catch (const std::exception& ex) {
+
+		handleExceptions(UNKNOWN_EXCEPTION);
+	}
 }
 
 

@@ -182,6 +182,10 @@ void handleExceptions(Exception exception)
             cout << "Íåïðàâèëüíîå ðàñøèðåíèå ôàéëà. Ôàéë äîëæåí èìåòü ðàñøèðåíèå .tex" << endl;
             break;
 
+        case UNKNOWN_EXCEPTION:
+            cout << "ÍÅÈÇÂÅÑÒÍÀß ÎØÈÁÊÀ" << endl;
+            break;
+
     }
     
 
