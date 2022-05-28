@@ -393,5 +393,46 @@ namespace convertSubFornulaToTexTest
 		}
 
 
+		TEST_METHOD(Sqrt)
+		{
+			vector<string> reversePolishEntryElements = { "a", "b", "sqrt()"};
+			string expectedTexFormula = "\\sqrt [ a ] { b }";
+			ExpressionTree* tree = NULL;
+			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			int maxPriority = 0;
+
+			string texFormula = convertSubFormulaToTex(tree, maxPriority);
+
+			Assert::AreEqual(expectedTexFormula, texFormula);
+		}
+
+
+		TEST_METHOD(SqrtWithComplexOperands)
+		{
+			vector<string> reversePolishEntryElements = { "a", "b", "+", "c", "d", "+", "sqrt()" };
+			string expectedTexFormula = "\\sqrt [ a + b ] { c + d }";
+			ExpressionTree* tree = NULL;
+			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			int maxPriority = 0;
+
+			string texFormula = convertSubFormulaToTex(tree, maxPriority);
+
+			Assert::AreEqual(expectedTexFormula, texFormula);
+		}
+
+
+		TEST_METHOD(SqrtFirstOperandIs2)
+		{
+			vector<string> reversePolishEntryElements = { "2", "b", "sqrt()" };
+			string expectedTexFormula = "\\sqrt { b }";
+			ExpressionTree* tree = NULL;
+			tree = convertReversePolishEntryToTree(reversePolishEntryElements);
+			int maxPriority = 0;
+
+			string texFormula = convertSubFormulaToTex(tree, maxPriority);
+
+			Assert::AreEqual(expectedTexFormula, texFormula);
+		}
+
 	};
 }
