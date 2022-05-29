@@ -1,3 +1,9 @@
+/*!
+*	\file 
+*	\brief Файл содержит реализации конструкторов, деструктора, а также методов дерева выражений
+*/
+
+
 #include "ExpressionTree.h"
 
 ExpressionTree::ExpressionTree() : expressionElementType(VAR), value("x")
