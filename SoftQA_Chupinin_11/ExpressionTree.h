@@ -83,7 +83,7 @@ public:
 	*/
 	ExpressionTree* getChild(int number);
 
-	/*	\brief Возвращает вектор указателей на детей
+	/*!	\brief Возвращает вектор указателей на детей
 	*	\return - вектор указателей на детей
 	*/
 	vector<ExpressionTree*> getChildren();

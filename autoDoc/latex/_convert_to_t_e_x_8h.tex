@@ -1,0 +1,394 @@
+\hypertarget{_convert_to_t_e_x_8h}{}\section{Файл Convert\+To\+T\+E\+X.\+h}
+\label{_convert_to_t_e_x_8h}\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+
+
+Заголовочный файл с заголовками вспомогательных функций, а также перечисление исключений  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+\subsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_convert_to_t_e_x_8h_af08ec37a8c99d747fb60fa15bc28678b}{\+\_\+\+C\+R\+T\+\_\+\+S\+E\+C\+U\+R\+E\+\_\+\+N\+O\+\_\+\+W\+A\+R\+N\+I\+N\+GS}}
+\end{DoxyCompactItemize}
+\subsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46}{Exception}} \{ \newline
+\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46ac7b69f92bbc35da9c437977199abed7e}{E\+M\+P\+T\+Y\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}, 
+\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46acae1b056d543cb9e6012ef2f57e09109}{F\+I\+L\+E\+\_\+\+I\+N\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+N\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}, 
+\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a2c7eb3179e721e0aff0bbd39bb1fafea}{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}, 
+\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a7f391bb9e271a60ffbcf7799e6d779f0}{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+V\+A\+L\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}, 
+\newline
+\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46ae0440bca34f33370169dd37195a4ec1b}{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+D\+I\+A\+P\+O\+S\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}, 
+\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46ab7d4a5f69539017907633cfcd8f970a8}{E\+X\+C\+E\+S\+S\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}, 
+\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a77fd75de835d301f44563139eec339b3}{L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}, 
+\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a3c8b6fc04207707cecbb1dbce7bfb00d}{L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+C\+O\+N\+S\+O\+L\+E\+\_\+\+A\+R\+G\+U\+M\+E\+NT}}, 
+\newline
+\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a4b230c9962f4c95b0289ca90f893a3bc}{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}, 
+\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a1918b005c3a338a2b213077aeb2ffa03}{U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}
+ \}
+\begin{DoxyCompactList}\small\item\em Перечисление ошибок \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_convert_to_t_e_x_8h_a7b85e910c81b100b63b513f076236ed9}{is\+Var}} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Определяет, является ли строка переменной \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_convert_to_t_e_x_8h_a32365e377c80c8e22cf61b4f94ae1b02}{is\+Number}} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Определяет, является ли строка числом \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_convert_to_t_e_x_8h_aa8d111bf48d55bf484f25b645680684d}{is\+Greek\+Letter}} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Определяет, является ли строка греческой буквой \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_convert_to_t_e_x_8h_ac2b336cc6cd1fed67a0caf3f6f85a017}{is\+Operator}} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Определяет, является ли строка оператором \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_convert_to_t_e_x_8h_a712748de4d9b72d7f5ee8c9bae5554b3}{get\+Priority\+Of\+Operator}} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Определяпет приоритет оператора \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_convert_to_t_e_x_8h_ae21b6302b60f99394bf6855459a07953}{handle\+Exceptions}} (\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46}{Exception}} exception)
+\begin{DoxyCompactList}\small\item\em Обработать ошибку \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_convert_to_t_e_x_8h_ad4e5f83764391b1e3f08c01e12f84057}{convert\+Operator\+To\+Tex}} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Конвертировать оператор из C-\/формата в tex-\/формат \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_convert_to_t_e_x_8h_aec4860ea778e9faaa79caa2f1e3a533e}{read\+File}} (string \&file\+Name, string \&reverse\+Polish\+Entry)
+\begin{DoxyCompactList}\small\item\em Прочитать содержимое файла \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_convert_to_t_e_x_8h_a705dee56a937b1f4d306aa1daf4a01b6}{write\+To\+File}} (string \&file\+Name, string \&tex\+Formula)
+\begin{DoxyCompactList}\small\item\em Записать в файл \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{_convert_to_t_e_x_8h_aaac987431c70181d544ce9ab8fb71aa3}{M\+A\+X\+\_\+\+O\+P\+E\+R\+A\+N\+D\+\_\+\+C\+O\+U\+NT}} = 3
+\begin{DoxyCompactList}\small\item\em Максимальное количество операндов оператора \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+Заголовочный файл с заголовками вспомогательных функций, а также перечисление исключений 
+
+Данный файл содержит заголовки функций, необходимых для идентификации элемента обратной польской записи, чтение и записи в файл, функцию обработки ошибок, определение параметров оператора в обратной польской записи, а также перечисление исключений 
+
+\subsection{Макросы}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_af08ec37a8c99d747fb60fa15bc28678b}\label{_convert_to_t_e_x_8h_af08ec37a8c99d747fb60fa15bc28678b}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!\+\_\+\+C\+R\+T\+\_\+\+S\+E\+C\+U\+R\+E\+\_\+\+N\+O\+\_\+\+W\+A\+R\+N\+I\+N\+GS@{\+\_\+\+C\+R\+T\+\_\+\+S\+E\+C\+U\+R\+E\+\_\+\+N\+O\+\_\+\+W\+A\+R\+N\+I\+N\+GS}}
+\index{\+\_\+\+C\+R\+T\+\_\+\+S\+E\+C\+U\+R\+E\+\_\+\+N\+O\+\_\+\+W\+A\+R\+N\+I\+N\+GS@{\+\_\+\+C\+R\+T\+\_\+\+S\+E\+C\+U\+R\+E\+\_\+\+N\+O\+\_\+\+W\+A\+R\+N\+I\+N\+GS}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+C\+R\+T\+\_\+\+S\+E\+C\+U\+R\+E\+\_\+\+N\+O\+\_\+\+W\+A\+R\+N\+I\+N\+GS}{\_CRT\_SECURE\_NO\_WARNINGS}}
+{\footnotesize\ttfamily \#define \+\_\+\+C\+R\+T\+\_\+\+S\+E\+C\+U\+R\+E\+\_\+\+N\+O\+\_\+\+W\+A\+R\+N\+I\+N\+GS}
+
+
+
+\subsection{Перечисления}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46}\label{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!Exception@{Exception}}
+\index{Exception@{Exception}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{Exception}{Exception}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46}{Exception}}}
+
+
+
+Перечисление ошибок 
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\+M\+P\+T\+Y\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{E\+M\+P\+T\+Y\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!E\+M\+P\+T\+Y\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{E\+M\+P\+T\+Y\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}}\mbox{\Hypertarget{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46ac7b69f92bbc35da9c437977199abed7e}\label{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46ac7b69f92bbc35da9c437977199abed7e}} 
+E\+M\+P\+T\+Y\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON&Пустая строка \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\+I\+L\+E\+\_\+\+I\+N\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+N\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{F\+I\+L\+E\+\_\+\+I\+N\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+N\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!F\+I\+L\+E\+\_\+\+I\+N\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+N\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{F\+I\+L\+E\+\_\+\+I\+N\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+N\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}}\mbox{\Hypertarget{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46acae1b056d543cb9e6012ef2f57e09109}\label{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46acae1b056d543cb9e6012ef2f57e09109}} 
+F\+I\+L\+E\+\_\+\+I\+N\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+N\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON&Файл c входными данными не найден \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}}\mbox{\Hypertarget{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a2c7eb3179e721e0aff0bbd39bb1fafea}\label{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a2c7eb3179e721e0aff0bbd39bb1fafea}} 
+I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON&Неверное расширение файла \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+V\+A\+L\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+V\+A\+L\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+V\+A\+L\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+V\+A\+L\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}}\mbox{\Hypertarget{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a7f391bb9e271a60ffbcf7799e6d779f0}\label{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a7f391bb9e271a60ffbcf7799e6d779f0}} 
+I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+V\+A\+L\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON&Неверный формат для элемента обратной польской записи \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+D\+I\+A\+P\+O\+S\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+D\+I\+A\+P\+O\+S\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+D\+I\+A\+P\+O\+S\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+D\+I\+A\+P\+O\+S\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}}\mbox{\Hypertarget{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46ae0440bca34f33370169dd37195a4ec1b}\label{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46ae0440bca34f33370169dd37195a4ec1b}} 
+I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+D\+I\+A\+P\+O\+S\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON&Неверный диапозон для чисел в обратной польской записи \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\+X\+C\+E\+S\+S\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{E\+X\+C\+E\+S\+S\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!E\+X\+C\+E\+S\+S\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{E\+X\+C\+E\+S\+S\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}}\mbox{\Hypertarget{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46ab7d4a5f69539017907633cfcd8f970a8}\label{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46ab7d4a5f69539017907633cfcd8f970a8}} 
+E\+X\+C\+E\+S\+S\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON&Количество операндов больше необходимого \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}}\mbox{\Hypertarget{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a77fd75de835d301f44563139eec339b3}\label{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a77fd75de835d301f44563139eec339b3}} 
+L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+N\+D\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON&Количество операндов меньше необходимого \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+C\+O\+N\+S\+O\+L\+E\+\_\+\+A\+R\+G\+U\+M\+E\+NT@{L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+C\+O\+N\+S\+O\+L\+E\+\_\+\+A\+R\+G\+U\+M\+E\+NT}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+C\+O\+N\+S\+O\+L\+E\+\_\+\+A\+R\+G\+U\+M\+E\+NT@{L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+C\+O\+N\+S\+O\+L\+E\+\_\+\+A\+R\+G\+U\+M\+E\+NT}}}\mbox{\Hypertarget{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a3c8b6fc04207707cecbb1dbce7bfb00d}\label{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a3c8b6fc04207707cecbb1dbce7bfb00d}} 
+L\+A\+C\+K\+\_\+\+O\+F\+\_\+\+C\+O\+N\+S\+O\+L\+E\+\_\+\+A\+R\+G\+U\+M\+E\+NT&Количество аргументов консоли меньше необходимого \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}}\mbox{\Hypertarget{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a4b230c9962f4c95b0289ca90f893a3bc}\label{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a4b230c9962f4c95b0289ca90f893a3bc}} 
+I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON&Неверное расширение выходного файла \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}}\mbox{\Hypertarget{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a1918b005c3a338a2b213077aeb2ffa03}\label{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46a1918b005c3a338a2b213077aeb2ffa03}} 
+U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON&Неизвестное исключение \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Функции}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_ad4e5f83764391b1e3f08c01e12f84057}\label{_convert_to_t_e_x_8h_ad4e5f83764391b1e3f08c01e12f84057}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!convert\+Operator\+To\+Tex@{convert\+Operator\+To\+Tex}}
+\index{convert\+Operator\+To\+Tex@{convert\+Operator\+To\+Tex}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{convert\+Operator\+To\+Tex()}{convertOperatorToTex()}}
+{\footnotesize\ttfamily string convert\+Operator\+To\+Tex (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Конвертировать оператор из C-\/формата в tex-\/формат 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\tt in}  & {\em str} & -\/ строка, являющаяся оператором \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+-\/ оператор в tex-\/формате 
+\end{DoxyReturn}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_convert_to_t_e_x_8h_ad4e5f83764391b1e3f08c01e12f84057_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_a712748de4d9b72d7f5ee8c9bae5554b3}\label{_convert_to_t_e_x_8h_a712748de4d9b72d7f5ee8c9bae5554b3}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!get\+Priority\+Of\+Operator@{get\+Priority\+Of\+Operator}}
+\index{get\+Priority\+Of\+Operator@{get\+Priority\+Of\+Operator}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{get\+Priority\+Of\+Operator()}{getPriorityOfOperator()}}
+{\footnotesize\ttfamily int get\+Priority\+Of\+Operator (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Определяпет приоритет оператора 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\tt in}  & {\em str} & -\/ строка \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+-\/ если строка является оператором, то приоритет оператора, иначе -\/1 
+\end{DoxyReturn}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_convert_to_t_e_x_8h_a712748de4d9b72d7f5ee8c9bae5554b3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_ae21b6302b60f99394bf6855459a07953}\label{_convert_to_t_e_x_8h_ae21b6302b60f99394bf6855459a07953}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!handle\+Exceptions@{handle\+Exceptions}}
+\index{handle\+Exceptions@{handle\+Exceptions}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{handle\+Exceptions()}{handleExceptions()}}
+{\footnotesize\ttfamily void handle\+Exceptions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_convert_to_t_e_x_8h_a8852f03cd91327c7c725673317d85b46}{Exception}}}]{exception }\end{DoxyParamCaption})}
+
+
+
+Обработать ошибку 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\tt in}  & {\em exception} & -\/ исключение \\
+\hline
+\end{DoxyParams}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{_convert_to_t_e_x_8h_ae21b6302b60f99394bf6855459a07953_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_aa8d111bf48d55bf484f25b645680684d}\label{_convert_to_t_e_x_8h_aa8d111bf48d55bf484f25b645680684d}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!is\+Greek\+Letter@{is\+Greek\+Letter}}
+\index{is\+Greek\+Letter@{is\+Greek\+Letter}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{is\+Greek\+Letter()}{isGreekLetter()}}
+{\footnotesize\ttfamily bool is\+Greek\+Letter (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Определяет, является ли строка греческой буквой 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\tt in}  & {\em str} & -\/ строка \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+-\/ если строка ялвяется греческой буквой, то true, иначе false 
+\end{DoxyReturn}
+Граф вызовов\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{_convert_to_t_e_x_8h_aa8d111bf48d55bf484f25b645680684d_cgraph}
+\end{center}
+\end{figure}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{_convert_to_t_e_x_8h_aa8d111bf48d55bf484f25b645680684d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_a32365e377c80c8e22cf61b4f94ae1b02}\label{_convert_to_t_e_x_8h_a32365e377c80c8e22cf61b4f94ae1b02}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!is\+Number@{is\+Number}}
+\index{is\+Number@{is\+Number}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{is\+Number()}{isNumber()}}
+{\footnotesize\ttfamily bool is\+Number (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Определяет, является ли строка числом 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\tt in}  & {\em str} & -\/ строка \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+-\/ если строка ялвяется числом, то true, иначе false 
+\end{DoxyReturn}
+Граф вызовов\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{_convert_to_t_e_x_8h_a32365e377c80c8e22cf61b4f94ae1b02_cgraph}
+\end{center}
+\end{figure}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_convert_to_t_e_x_8h_a32365e377c80c8e22cf61b4f94ae1b02_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_ac2b336cc6cd1fed67a0caf3f6f85a017}\label{_convert_to_t_e_x_8h_ac2b336cc6cd1fed67a0caf3f6f85a017}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!is\+Operator@{is\+Operator}}
+\index{is\+Operator@{is\+Operator}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{is\+Operator()}{isOperator()}}
+{\footnotesize\ttfamily int is\+Operator (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Определяет, является ли строка оператором 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\tt in}  & {\em str} & -\/ строка \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+-\/ если строка ялвяется оператором, то количество операндов, иначе -\/1 
+\end{DoxyReturn}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{_convert_to_t_e_x_8h_ac2b336cc6cd1fed67a0caf3f6f85a017_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_a7b85e910c81b100b63b513f076236ed9}\label{_convert_to_t_e_x_8h_a7b85e910c81b100b63b513f076236ed9}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!is\+Var@{is\+Var}}
+\index{is\+Var@{is\+Var}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{is\+Var()}{isVar()}}
+{\footnotesize\ttfamily bool is\+Var (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Определяет, является ли строка переменной 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\tt in}  & {\em str} & -\/ строка \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+-\/ если строка является переменной, то true, иначе false 
+\end{DoxyReturn}
+Граф вызовов\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{_convert_to_t_e_x_8h_a7b85e910c81b100b63b513f076236ed9_cgraph}
+\end{center}
+\end{figure}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{_convert_to_t_e_x_8h_a7b85e910c81b100b63b513f076236ed9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_aec4860ea778e9faaa79caa2f1e3a533e}\label{_convert_to_t_e_x_8h_aec4860ea778e9faaa79caa2f1e3a533e}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!read\+File@{read\+File}}
+\index{read\+File@{read\+File}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{read\+File()}{readFile()}}
+{\footnotesize\ttfamily void read\+File (\begin{DoxyParamCaption}\item[{string \&}]{file\+Name,  }\item[{string \&}]{reverse\+Polish\+Entry }\end{DoxyParamCaption})}
+
+
+
+Прочитать содержимое файла 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\tt in}  & {\em file\+Name} & -\/ имя входного файла \\
+\hline
+\mbox{\tt out}  & {\em reverse\+Polish\+Entry} & -\/ обратная польская запись \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON} & -\/ файл имеет неверное расширение \\
+\hline
+{\em F\+I\+L\+E\+\_\+\+I\+N\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+N\+D\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON} & -\/ файл не найден \\
+\hline
+{\em E\+M\+P\+T\+Y\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON} & -\/ файл содержит пустую строку \\
+\hline
+\end{DoxyExceptions}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{_convert_to_t_e_x_8h_aec4860ea778e9faaa79caa2f1e3a533e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_a705dee56a937b1f4d306aa1daf4a01b6}\label{_convert_to_t_e_x_8h_a705dee56a937b1f4d306aa1daf4a01b6}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!write\+To\+File@{write\+To\+File}}
+\index{write\+To\+File@{write\+To\+File}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{write\+To\+File()}{writeToFile()}}
+{\footnotesize\ttfamily void write\+To\+File (\begin{DoxyParamCaption}\item[{string \&}]{file\+Name,  }\item[{string \&}]{tex\+Formula }\end{DoxyParamCaption})}
+
+
+
+Записать в файл 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\tt in}  & {\em file\+Name} & -\/ имя выходного файла \\
+\hline
+\mbox{\tt in}  & {\em tex\+Formula} & -\/ tex-\/формула, которую мы должны записать в файл \\
+\hline
+\end{DoxyParams}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{_convert_to_t_e_x_8h_a705dee56a937b1f4d306aa1daf4a01b6_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Переменные}
+\mbox{\Hypertarget{_convert_to_t_e_x_8h_aaac987431c70181d544ce9ab8fb71aa3}\label{_convert_to_t_e_x_8h_aaac987431c70181d544ce9ab8fb71aa3}} 
+\index{Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}!M\+A\+X\+\_\+\+O\+P\+E\+R\+A\+N\+D\+\_\+\+C\+O\+U\+NT@{M\+A\+X\+\_\+\+O\+P\+E\+R\+A\+N\+D\+\_\+\+C\+O\+U\+NT}}
+\index{M\+A\+X\+\_\+\+O\+P\+E\+R\+A\+N\+D\+\_\+\+C\+O\+U\+NT@{M\+A\+X\+\_\+\+O\+P\+E\+R\+A\+N\+D\+\_\+\+C\+O\+U\+NT}!Convert\+To\+T\+E\+X.\+h@{Convert\+To\+T\+E\+X.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+O\+P\+E\+R\+A\+N\+D\+\_\+\+C\+O\+U\+NT}{MAX\_OPERAND\_COUNT}}
+{\footnotesize\ttfamily const int M\+A\+X\+\_\+\+O\+P\+E\+R\+A\+N\+D\+\_\+\+C\+O\+U\+NT = 3}
+
+
+
+Максимальное количество операндов оператора 
+
