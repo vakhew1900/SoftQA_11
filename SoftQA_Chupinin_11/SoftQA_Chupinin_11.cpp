@@ -1,4 +1,11 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+﻿/*!	\file
+*	\brief файл с точкой входа в программу
+* 
+*/
+
+
+
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "convertTreeToTEX.h"
 #include <string>

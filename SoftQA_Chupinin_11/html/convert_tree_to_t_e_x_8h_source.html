@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ToTexFormula: Исходный файл convertTreeToTEX.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">ToTexFormula
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">convertTreeToTEX.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="convert_tree_to_t_e_x_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_expression_tree_8h.html">ExpressionTree.h</a>&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">string</span> <a class="code" href="convert_tree_to_t_e_x_8h.html#aec3525860ad5d5b05c0fd16270b606d7">convertFormulaToTex</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; reversePolishEntry);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="class_expression_tree.html">ExpressionTree</a>* <a class="code" href="convert_tree_to_t_e_x_8h.html#a4484ae20417cae4ad61d6319cdf03f68">convertReversePolishEntryToTree</a>(vector&lt;string&gt;&amp; reversePolishEntryElements);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">string</span> <a class="code" href="convert_tree_to_t_e_x_8h.html#acccbe3becd02b6dee976c55008082244">convertSubFormulaToTex</a>(<a class="code" href="class_expression_tree.html">ExpressionTree</a>* current, <span class="keywordtype">int</span>&amp; curPriority);</div><div class="ttc" id="convert_tree_to_t_e_x_8h_html_a4484ae20417cae4ad61d6319cdf03f68"><div class="ttname"><a href="convert_tree_to_t_e_x_8h.html#a4484ae20417cae4ad61d6319cdf03f68">convertReversePolishEntryToTree</a></div><div class="ttdeci">ExpressionTree * convertReversePolishEntryToTree(vector&lt; string &gt; &amp;reversePolishEntryElements)</div><div class="ttdoc">Конвертировать обратную польскую запись в дерево выражений </div><div class="ttdef"><b>Definition:</b> convertTreeToTEX.cpp:16</div></div>
+<div class="ttc" id="convert_tree_to_t_e_x_8h_html_aec3525860ad5d5b05c0fd16270b606d7"><div class="ttname"><a href="convert_tree_to_t_e_x_8h.html#aec3525860ad5d5b05c0fd16270b606d7">convertFormulaToTex</a></div><div class="ttdeci">string convertFormulaToTex(const string &amp;reversePolishEntry)</div><div class="ttdoc">Конвертировать обратную польскую запись в tex-формулу </div><div class="ttdef"><b>Definition:</b> convertTreeToTEX.cpp:183</div></div>
+<div class="ttc" id="convert_tree_to_t_e_x_8h_html_acccbe3becd02b6dee976c55008082244"><div class="ttname"><a href="convert_tree_to_t_e_x_8h.html#acccbe3becd02b6dee976c55008082244">convertSubFormulaToTex</a></div><div class="ttdeci">string convertSubFormulaToTex(ExpressionTree *current, int &amp;curPriority)</div><div class="ttdoc">Конвертировать подформулу в tex-формулу </div><div class="ttdef"><b>Definition:</b> convertTreeToTEX.cpp:77</div></div>
+<div class="ttc" id="_expression_tree_8h_html"><div class="ttname"><a href="_expression_tree_8h.html">ExpressionTree.h</a></div><div class="ttdoc">Файл содержит перечисление типов элементов обратной польской записи, а также класс дерева выражений ...</div></div>
+<div class="ttc" id="class_expression_tree_html"><div class="ttname"><a href="class_expression_tree.html">ExpressionTree</a></div><div class="ttdoc">Дерево выражений </div><div class="ttdef"><b>Definition:</b> ExpressionTree.h:28</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>
