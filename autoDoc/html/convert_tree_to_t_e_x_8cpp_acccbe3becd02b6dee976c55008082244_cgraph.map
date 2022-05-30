@@ -1,9 +1,0 @@
-<map id="convertSubFormulaToTex" name="convertSubFormulaToTex">
-<area shape="rect" id="node2" href="$class_expression_tree.html#ab2d6cfdfb645e371d50cc5882053354f" title="Возвращает тип элемента обратной польской записи " alt="" coords="221,5,424,47"/>
-<area shape="rect" id="node3" href="$class_expression_tree.html#a1456f080f1d7f83cced830dc98f22d20" title="Возвращает приоритет оператора " alt="" coords="229,71,417,112"/>
-<area shape="rect" id="node4" href="$class_expression_tree.html#a8b072f45d0e8dbcd9aa7159c10792407" title="Возвращает количество операндов " alt="" coords="225,136,420,177"/>
-<area shape="rect" id="node5" href="$class_expression_tree.html#a43f4d0121efe31c0258e5932007b928e" title="Возвращает указатель на ребенка " alt="" coords="239,202,406,229"/>
-<area shape="rect" id="node6" href="$class_expression_tree.html#a2ba380c9b6d05a259f7827269cce4aea" title="Возвращает tex&#45;формат значения вершины " alt="" coords="223,253,423,279"/>
-<area shape="rect" id="node7" href="$class_expression_tree.html#ab8b29bfa5c593849c39becf1b501c80f" title="Возвращает значение вершины " alt="" coords="237,303,408,330"/>
-<area shape="rect" id="node8" href="$_convert_to_t_e_x_8cpp.html#a32365e377c80c8e22cf61b4f94ae1b02" title="Определяет, является ли строка числом " alt="" coords="284,378,361,405"/>
-</map>
