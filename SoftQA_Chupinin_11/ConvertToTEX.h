@@ -47,9 +47,10 @@ bool isVar(const string& str);
 
 /*!	\brief Определяет, является ли строка числом
 *	\param[in] str - строка
+*	\param[in]  nSignificantDigits  - количество значащих  цифр в строке
 *	\return - если строка ялвяется числом, то true, иначе false
 */
-bool isNumber(const string& str);
+bool isNumber(const string& str, int  nSignificantDigits = 100);
 
 
 /*!	\brief Определяет, является ли строка греческой буквой

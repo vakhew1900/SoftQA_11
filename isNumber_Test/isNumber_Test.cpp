@@ -118,7 +118,7 @@ namespace isNumberTest
 			string str = "12345678910121314151";
 			int expectedResult = 1;
 
-			int result = isNumber(str);
+			int result = isNumber(str, 20);
 
 			Assert::AreEqual(expectedResult, result);
 		}
@@ -128,7 +128,7 @@ namespace isNumberTest
 			string str = "1234567891012131415.1";
 			int expectedResult = 1;
 
-			int result = isNumber(str);
+			int result = isNumber(str, 20);
 
 			Assert::AreEqual(expectedResult, result);
 		}
@@ -138,7 +138,7 @@ namespace isNumberTest
 			string str = "12345678910111213141516";
 			int expectedResult = 0;
 
-			int result = isNumber(str);
+			int result = isNumber(str, 20);
 
 			Assert::AreEqual(expectedResult, result);
 		}
@@ -148,7 +148,7 @@ namespace isNumberTest
 			string str = "1234567891011121314151.6";
 			int expectedResult = 0;
 
-			int result = isNumber(str);
+			int result = isNumber(str, 20);
 
 			Assert::AreEqual(expectedResult, result);
 		}

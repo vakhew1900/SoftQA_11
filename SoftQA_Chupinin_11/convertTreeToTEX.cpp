@@ -26,25 +26,17 @@ ExpressionTree* convertReversePolishEntryToTree(vector<string>& reversePolishEnt
 	reversePolishEntryElements.pop_back(); // удаляем элемент в конце вектора
 	ExpressionTree* current;
 
-	if (isNumber(value) && value[0] == '-') // элемент обратной польской записи является отрицательным числом
+	if (isNumber(value, 20) && value[0] == '-') // элемент обратной польской записи является отрицательным числом
 	{
 		current = new ExpressionTree("--"); // создаем новую вершину в наше дерево со значением одиночного минуса
 		value.erase(0,1); // удаляем минус из значение
 		reversePolishEntryElements.push_back(value); // добавляем значение в вектор элементов обратной польской записи
 	}
 	else {
-		 current = new ExpressionTree(value); // создаем новую вершину в наше дерево
-	}
-	bool is_number = 1; // считать, что последний элемент обратной польской записи является числом
-
-	try {
-		double num = boost::lexical_cast<double> (value); // перевод из строки в число
-	}
-	catch (boost::bad_lexical_cast&) { // перевод не был осуществлен
-		is_number = 0; // считать, что строка не является числом
+		current = new ExpressionTree(value); // создаем новую вершину в наше дерево
 	}
 
-	if (isNumber(value) == 0 && is_number == 1) { // количество значимых цифр больше 20
+	if (isNumber(value)  && !isNumber(value, 20) ) { // количество значимых цифр больше 20
 		throw INCORRECT_DIAPOSON_EXCEPTION; // выбросить исключение
 	}
 
