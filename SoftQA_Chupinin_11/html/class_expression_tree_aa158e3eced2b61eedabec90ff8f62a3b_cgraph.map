@@ -1,8 +1,0 @@
-<map id="ExpressionTree::ExpressionTree" name="ExpressionTree::ExpressionTree">
-<area shape="rect" id="node2" href="$_convert_to_t_e_x_8cpp.html#ac2b336cc6cd1fed67a0caf3f6f85a017" title="Определяет, является ли строка оператором " alt="" coords="297,5,379,32"/>
-<area shape="rect" id="node3" href="$_convert_to_t_e_x_8cpp.html#ad4e5f83764391b1e3f08c01e12f84057" title="Конвертировать оператор из C&#45;формата в tex&#45;формат " alt="" coords="264,56,412,83"/>
-<area shape="rect" id="node4" href="$_convert_to_t_e_x_8cpp.html#a712748de4d9b72d7f5ee8c9bae5554b3" title="Определяпет приоритет оператора " alt="" coords="266,107,410,133"/>
-<area shape="rect" id="node5" href="$_convert_to_t_e_x_8cpp.html#a32365e377c80c8e22cf61b4f94ae1b02" title="Определяет, является ли строка числом " alt="" coords="299,181,377,208"/>
-<area shape="rect" id="node6" href="$_convert_to_t_e_x_8cpp.html#aa8d111bf48d55bf484f25b645680684d" title="Определяет, является ли строка греческой буквой " alt="" coords="288,256,388,283"/>
-<area shape="rect" id="node7" href="$_convert_to_t_e_x_8cpp.html#a7b85e910c81b100b63b513f076236ed9" title="Определяет, является ли строка переменной " alt="" coords="312,331,364,357"/>
-</map>
