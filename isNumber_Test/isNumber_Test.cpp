@@ -140,7 +140,7 @@ namespace isNumberTest
 
 			int result = isNumber(str, 20);
 
-			Assert::AreEqual(expectedResult, result);
+			Assert::AreEqual(expectedResult, result); 
 		}
 
 		TEST_METHOD(StringHaveLengthThatMoreMaxAndItFloat)

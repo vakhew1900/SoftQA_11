@@ -13,46 +13,39 @@
 #include <fstream>
 #include "boost/lexical_cast.hpp"
 
-
-
-
 bool isNumber(const string& str, int nSignificantDigits)
 {
-    int minus = 0; // количество минусов
-    int point = 0; // колиличество точек
-    bool isNumber = 1; // считать, что строка является числом
-    bool digits= 0; // считать, что цифры в строке не найдены
+    int minus = 0; // минус не найден
+    int point = 0; // точка не найдена
+    bool isNumber = 1; // считать, что строка является номером
     int numberSize = str.size(); // количество значащих цифр
 
-    for (int i = 0; i < str.size(); i++) // для всех символов строки
-    {
-        if (str[i] == '-') // элемент строки есть минус
-            minus++; // увеличить количество минусов на один
-        else  if (str[i] == '.') // элемент является 
-            point++;
-        else if (isdigit(str[i])) {// элемент строки является числом
-            digits = 1;
-        }
-        else { // иначе
-            isNumber = 0; // cчитать, что строка не является числом
-        }
+    try {
+        double num = boost::lexical_cast<double> (str); // перевод из строки в число
+    }
+    catch (boost::bad_lexical_cast&) { // перевод не был осуществлен
+        isNumber = 0; // считать, что строка не является числом
     }
 
-    if (point) // в строке присутствуют точки
-    {
-        if (point > 1 || str[0] == '.' || str[str.size() - 1] == '.') // количество точек больше одной или первый символ строки есть точки или последний символ строки есть точка
-            isNumber = 0; // считать, что строка не является числом
-        
-        numberSize--; // уменьшить количество цифр в строке на 1
-    }
 
-    if ( minus == 1 && str[0] == '-') { // минус найден
+    minus = count(str.begin(), str.end(), '-'); // найти в строке минус
+
+    if (minus != -1) { // минус найден
         numberSize -= minus; // уменьшить количество значащих цифр на единицу
     }
 
-   
+    point = str.find("."); // найти точку в строке
 
-    if (numberSize > nSignificantDigits || digits == 0) // количество значащих цифр в строке больше заявленного или в строке отсутствуют цифры
+    if (point != -1) { // точка найдена
+        numberSize--; // уменьшить количество значащих цифр на единицу
+    }
+
+    if (str.find("e") != -1 || str.find("E") != -1) // в строке присутствует знак экспоненты
+    {
+        isNumber = 0; // считать, что строка не является числом
+    }
+
+    if (numberSize > nSignificantDigits) // количество значащих цифр в строке больше 20
         isNumber = 0; // считать, что строка не является числом
 
     return isNumber;
@@ -165,49 +158,51 @@ void handleExceptions(Exception exception)
     switch (exception)
     {
         case EMPTY_STRING_EXCEPTION:
-            cerr << "Вводится пустая строка" << endl;
+            cout << "Вводится пустая строка" << endl;
             break;
     
         case FILE_IN_NOT_FOUND_EXCEPTION:
-            cerr << "Неверно указан файл с входными данными. Возможно, файл не существует" << endl;
+            cout << "Неверно указан файл с входными данными. Возможно, файл не существует" << endl;
             break;
 
         case INCORRECT_EXTENSION_EXCEPTION:
-            cerr << "Неверно указано расширение файла. Файл должен иметь расширение .txt " << endl;
+            cout << "Неверно указано расширение файла. Файл должен иметь расширение .txt " << endl;
             break;
 
         case INCORRECT_VAL_FORMAT_EXCEPTION:
-            cerr << "Неопознанный элемент обратной польской записи " << endl;
+            cout << "Неопознанный элемент обратной польской записи " << endl;
             break;
 
         case INCORRECT_DIAPOSON_EXCEPTION:
-            cerr << "Количество значимых цифр в числе больше максимально возможного " << endl;
+            cout << "Количество значимых цифр в числе больше максимально возможного " << endl;
             break;
 
         case EXCESS_OF_OPERANDS_EXCEPTION:
-            cerr <<"Количество операций  недостаточно для данного количества операндов "<< endl;
+            cout <<"Количество операций  недостаточно для данного количества операндов "<< endl;
             break;
 
         case LACK_OF_OPERANDS_EXCEPTION:
-            cerr << "Количество операций больше необходимого количества " << endl;
+            cout << "Количество операций больше необходимого количества " << endl;
             break;
         
         case LACK_OF_CONSOLE_ARGUMENT:
-                cerr << "Недостаточное количество аргументов" << endl;
-                break;
+            cout << "Недостаточное количество аргументов" << endl;
+            break;
 
         case INCORRECT_EXTENSION_OUTPUT_EXCEPTION:
-            cerr << "Неправильное расширение файла. Файл должен иметь расширение .tex" << endl;
+            cout << "Неправильное расширение файла. Файл должен иметь расширение .tex" << endl;
             break;
 
         case UNKNOWN_EXCEPTION:
-            cerr << "НЕИЗВЕСТНАЯ ОШИБКА" << endl;
+            cout << "НЕИЗВЕСТНАЯ ОШИБКА" << endl;
             break;
 
     }
     
 
 }
+
+
 
 string convertOperatorToTex(const string& str)
 {
@@ -217,6 +212,7 @@ string convertOperatorToTex(const string& str)
         {"!=", "\\neq"}, {">",">"}, {"<","<"}, {"&&", "\\wedge"},{"||","\\vee"}, {"&","\\cap"}, {"|","\\cup"}, {",", ","},
         {"..", ".."}, {"frac()", "\\frac"}, {"pow()","^"}, {"_","_"}, {"sqrt()","\\sqrt"}, {"in()", "\\in"}, {"noin()", "\\notin"},
         {"!","\\overline"}, {"all()", "\\forall"}, {"exist()", "\\exists"}, {"summator()","\\sum"}, {"--","-"} };
+
 
     return operatorTex[str]; 
 }
