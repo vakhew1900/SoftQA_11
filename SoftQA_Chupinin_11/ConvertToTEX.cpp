@@ -13,6 +13,9 @@
 #include <fstream>
 #include "boost/lexical_cast.hpp"
 
+
+
+
 bool isNumber(const string& str, int nSignificantDigits)
 {
     int minus = 0; // минус не найден
@@ -158,43 +161,47 @@ void handleExceptions(Exception exception)
     switch (exception)
     {
         case EMPTY_STRING_EXCEPTION:
-            cout << "Вводится пустая строка" << endl;
+            cerr << "Вводится пустая строка" << endl;
             break;
     
         case FILE_IN_NOT_FOUND_EXCEPTION:
-            cout << "Неверно указан файл с входными данными. Возможно, файл не существует" << endl;
+            cerr << "Неверно указан файл с входными данными. Возможно, файл не существует" << endl;
             break;
 
         case INCORRECT_EXTENSION_EXCEPTION:
-            cout << "Неверно указано расширение файла. Файл должен иметь расширение .txt " << endl;
+            cerr << "Неверно указано расширение файла. Файл должен иметь расширение .txt " << endl;
             break;
 
         case INCORRECT_VAL_FORMAT_EXCEPTION:
-            cout << "Неопознанный элемент обратной польской записи " << endl;
+            cerr << "Неопознанный элемент обратной польской записи " << endl;
             break;
 
         case INCORRECT_DIAPOSON_EXCEPTION:
-            cout << "Количество значимых цифр в числе больше максимально возможного " << endl;
+            cerr << "Количество значимых цифр в числе больше максимально возможного " << endl;
             break;
 
         case EXCESS_OF_OPERANDS_EXCEPTION:
-            cout <<"Количество операций  недостаточно для данного количества операндов "<< endl;
+            cerr <<"Количество операций  недостаточно для данного количества операндов "<< endl;
             break;
 
         case LACK_OF_OPERANDS_EXCEPTION:
-            cout << "Количество операций больше необходимого количества " << endl;
+            cerr << "Количество операций больше необходимого количества " << endl;
             break;
         
         case LACK_OF_CONSOLE_ARGUMENT:
-            cout << "Недостаточное количество аргументов" << endl;
+            cerr << "Недостаточное количество аргументов" << endl;
             break;
 
         case INCORRECT_EXTENSION_OUTPUT_EXCEPTION:
-            cout << "Неправильное расширение файла. Файл должен иметь расширение .tex" << endl;
+            cerr << "Неправильное расширение файла. Файл должен иметь расширение .tex" << endl;
+            break;
+
+        case VERY_LONG_STRING_EXCEPTION:
+            cerr << "Количество элементов в обратной польской записи больше 200" << endl;
             break;
 
         case UNKNOWN_EXCEPTION:
-            cout << "НЕИЗВЕСТНАЯ ОШИБКА" << endl;
+            cerr << "НЕИЗВЕСТНАЯ ОШИБКА" << endl;
             break;
 
     }

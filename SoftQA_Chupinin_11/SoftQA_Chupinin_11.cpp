@@ -51,6 +51,6 @@ int main(int argc, char* argv[])
 
 		handleExceptions(UNKNOWN_EXCEPTION);
 	}
-
-	cout << "end" << "\n";
+	
+	
 }

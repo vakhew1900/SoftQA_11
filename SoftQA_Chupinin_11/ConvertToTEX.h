@@ -33,8 +33,8 @@ enum Exception
 	LACK_OF_OPERANDS_EXCEPTION, ///< Количество операндов меньше необходимого
 	LACK_OF_CONSOLE_ARGUMENT, ///< Количество аргументов консоли меньше необходимого
 	INCORRECT_EXTENSION_OUTPUT_EXCEPTION, ///< Неверное расширение выходного файла
-	UNKNOWN_EXCEPTION ///< Неизвестное исключение
-	
+	UNKNOWN_EXCEPTION, ///< Неизвестное исключение
+	VERY_LONG_STRING_EXCEPTION ///< Количество элементов в обратной польской записи больше 200
 };
 
 

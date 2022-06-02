@@ -178,6 +178,7 @@ string convertFormulaToTex(const string& reversePolishEntry)
 	vector <string> reversePolishEntryElements; // вектор элементов обратной польской записи
 	
 	string workingReversePolishEntry = reversePolishEntry; // создаем копию обратной польской записи, с которой и будем работать
+	
 
 	while (seps.find(workingReversePolishEntry[workingReversePolishEntry.size() - 1]) != -1) // пока в конце строки обратной польской записи присутствует разделитель
 	{
@@ -188,6 +189,11 @@ string convertFormulaToTex(const string& reversePolishEntry)
 	boost::split(reversePolishEntryElements, workingReversePolishEntry,boost::is_any_of(seps), boost ::token_compress_on); // преобразуем строку обратной  польской записи в вектор элементов обратной польской записи
 
 	ExpressionTree* tree = NULL; // создаем вершину дерева
+
+
+	if (reversePolishEntryElements.size() > 200) { // количество элементов в обратной польской записи больше допустимого
+		throw VERY_LONG_STRING_EXCEPTION; // выбросить исключение
+	}
 
 	try {
 		tree = convertReversePolishEntryToTree(reversePolishEntryElements); // преобразуем обратную польскую запись в дерево выражений
