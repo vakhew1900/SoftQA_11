@@ -17,7 +17,7 @@
 *	\throw INCORRECT_DIAPOSON_EXCEPTION - количество значащих цифр больше 20
 *	\throw INCORRECT_VAL_FORMAT_EXCEPTION - в обратной польской записи есть неопознанный элемент
 *	\throw EXCESS_OF_OPERANDS_EXCEPTION -  переизбыток операндов в обратной польской записи
-*	\throw VERY_LONG_STRING_EXCEPTION - Количество элементов в обратной польской записи больше 200
+*	\throw VERY_LONG_STRING_EXCEPTION - Количество элементов в обратной польской записи больше 400
 */
 string convertFormulaToTex(const string& reversePolishEntry);
 

@@ -191,7 +191,7 @@ string convertFormulaToTex(const string& reversePolishEntry)
 	ExpressionTree* tree = NULL; // создаем вершину дерева
 
 
-	if (reversePolishEntryElements.size() > 200) { // количество элементов в обратной польской записи больше допустимого
+	if (reversePolishEntryElements.size() > 400) { // количество элементов в обратной польской записи больше допустимого
 		throw VERY_LONG_STRING_EXCEPTION; // выбросить исключение
 	}
 
