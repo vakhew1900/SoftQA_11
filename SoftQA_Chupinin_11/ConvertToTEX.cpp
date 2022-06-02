@@ -197,7 +197,7 @@ void handleExceptions(Exception exception)
             break;
 
         case VERY_LONG_STRING_EXCEPTION:
-            cerr << "Количество элементов в обратной польской записи больше 200" << endl;
+            cerr << "Количество элементов в обратной польской записи больше 400" << endl;
             break;
 
         case UNKNOWN_EXCEPTION:
