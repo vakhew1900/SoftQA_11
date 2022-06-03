@@ -26,7 +26,11 @@ ExpressionTree* convertReversePolishEntryToTree(vector<string>& reversePolishEnt
 	reversePolishEntryElements.pop_back(); // удаляем элемент в конце вектора
 	ExpressionTree* current;
 
-	if (isNumber(value, 20) && value[0] == '-') // элемент обратной польской записи является отрицательным числом
+	bool is_number = isNumber(value); // вершина дерева ялвяется числом
+	bool is_correct_num_len = isNumber(value, 20); // вершина дерева является числом с корректным количеством значащих цифр
+
+
+	if (is_number && value[0] == '-') // элемент обратной польской записи является отрицательным числом
 	{
 		current = new ExpressionTree("--"); // создаем новую вершину в наше дерево со значением одиночного минуса
 		value.erase(0,1); // удаляем минус из значение
@@ -36,7 +40,7 @@ ExpressionTree* convertReversePolishEntryToTree(vector<string>& reversePolishEnt
 		current = new ExpressionTree(value); // создаем новую вершину в наше дерево
 	}
 
-	if (isNumber(value)  && !isNumber(value, 20) ) { // количество значимых цифр больше 20
+	if (is_number && !is_correct_num_len) { // количество значимых цифр больше 20
 		throw INCORRECT_DIAPOSON_EXCEPTION; // выбросить исключение
 	}
 
@@ -115,7 +119,10 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 
 				if (curPriority < priority[0] && (operands[0][0] != '-' || value == "pow()")) operands[0] = "(" + operands[0] + ")"; // если приоритет текущей операции выше приоритета операции левого операнда и отстутсвует одинарный минус в начале операнда ИЛИ производится возведение в степень, взять левый операнд в скобки
 				
-				bool is_number = isNumber(operands[0]) ||  isNumber(operands[1]); // один из операндов число
+				bool is_number0 = current->getChild(0)->getExpressionElementType() == NUMBER || (current->getChild(0)->getValue() == "--" && current->getChild(0)->getChild(0)->getExpressionElementType() == NUMBER); // первый операнд является числом
+				bool is_number1 = current->getChild(1)->getExpressionElementType() == NUMBER || (current->getChild(1)->getValue() == "--" && current->getChild(1)->getChild(0)->getExpressionElementType() == NUMBER); // второй операнд является числом
+				
+				bool is_number = is_number0 ||  is_number1; // один из операндов число
 
 				bool is_var = current->getChild(0)->getExpressionElementType() == VAR || current->getChild(1)->getExpressionElementType() == VAR; // один из операндов переменная
 
@@ -124,7 +131,7 @@ string convertSubFormulaToTex(ExpressionTree* current, int& curPriority)
 
 				if (value == "*"  && (is_var || is_greek_letter)  && is_number ) { // происходит умножение  числа на переменную/число
 
-					if (isNumber(operands[1])) { // правый операнд число
+					if (is_number1) { // правый операнд число
 						swap(operands[0], operands[1]); // поменять местами операнды
 					}
 
