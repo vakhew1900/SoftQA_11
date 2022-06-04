@@ -10,7 +10,7 @@
 #include "convertTreeToTEX.h"
 #include <string>
 #include <boost/algorithm/string.hpp>
-#pragma comment(linker, "/STACK:64000000")
+#pragma comment(linker, "/STACK:82000000")
 
 
 using namespace std;
