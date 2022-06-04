@@ -20,7 +20,7 @@ bool isNumber(const string& str, int nSignificantDigits)
 {
     int minus = 0; // количество минусов
     int point = 0; // колиличество точек
-    bool isNumber = 1; // считать, что строка является числом
+    bool result = 1; // считать, что строка является числом
     bool digits = 0; // считать, что цифры в строке не найдены
     int numberSize = str.size(); // количество значащих цифр
 
@@ -35,14 +35,14 @@ bool isNumber(const string& str, int nSignificantDigits)
             digits = 1;
         }
         else { // иначе
-            isNumber = 0; // cчитать, что строка не является числом
+            result = 0; // cчитать, что строка не является числом
         }
     }
 
     if (point) // в строке присутствуют точки
     {
         if (point > 1 || str[0] == '.' || str[str.size() - 1] == '.') // количество точек больше одной или первый символ строки есть точки или последний символ строки есть точка
-            isNumber = 0; // считать, что строка не является числом
+            result = 0; // считать, что строка не является числом
 
         numberSize--; // уменьшить количество цифр в строке на 1
     }
@@ -54,9 +54,9 @@ bool isNumber(const string& str, int nSignificantDigits)
 
 
     if (numberSize > nSignificantDigits || digits == 0) // количество значащих цифр в строке больше заявленного или в строке отсутствуют цифры
-        isNumber = 0; // считать, что строка не является числом
+        result = 0; // считать, что строка не является числом
 
-    return isNumber;
+    return result;
 
 }
 
@@ -99,19 +99,19 @@ bool isGreekLetter(const string& str)
     "\\iota", "\\kappa", "\\lambda", "\\mu", "\\nu", "\\xi", "\\omicron", "\\pi", "\\rho", "\\sigma", "\\tau", "\\upsilon",
     "\\phi", "\\chi", "\\psi", "\\omega" }; // греческие маленькие буквы
 
-    bool isGreekLetter = 0; // считать, что строка не является греческой буквой
+    bool result = 0; // считать, что строка не является греческой буквой
 
     for (int i = 0; i < upperGreekLetter.size(); i++) {  // для всех заглавных греческих букв
         if (workingStr == upperGreekLetter[i]) //  строка является заглавной греческой буквой
-            isGreekLetter = 1; // считать, что строка  является греческой буквой
+            result = 1; // считать, что строка  является греческой буквой
     }
 
     for (int i = 0; i < lowerGreekLetter.size(); i++) { // для всех маленьких букв
         if (workingStr == lowerGreekLetter[i]) // строка является заглавной греческой буквой
-            isGreekLetter = 1; // считать, что строка не является греческой буквой
+            result = 1; // считать, что строка не является греческой буквой
     }
 
-    return isGreekLetter; 
+    return result; 
 }
 
 bool isVar(const string& str) {
